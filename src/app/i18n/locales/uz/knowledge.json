@@ -1,0 +1,29 @@
+{
+  "page": {
+    "title": "Maslahatlar bazasi",
+    "description": "Filiallar uchun qayta foydalaniladigan tasdiqlangan huquqiy javoblar. Javob topilmasa — savol yuboring."
+  },
+  "category": {
+    "CONTRACTS": "Shartnomalar",
+    "CREDIT": "Kreditlash",
+    "COLLATERAL": "Garov",
+    "LABOR": "Mehnat",
+    "CORPORATE": "Korporativ",
+    "BANK_SECRECY": "Bank siri",
+    "PERSONAL_DATA": "Shaxsga doir ma'lumotlar",
+    "PROCEDURE": "Tartib-taomillar"
+  },
+  "usedTimes_one": "{{count}} marta foydalanilgan",
+  "usedTimes_other": "{{count}} marta foydalanilgan",
+  "copyAnswer": "Javobni nusxalash",
+  "copied": "Javob nusxalandi",
+  "copyFailed": "Nusxalab bo'lmadi",
+  "searchPlaceholder": "Savol, kalit so'z yoki teg bo'yicha qidiring",
+  "allCategories": "Barchasi",
+  "empty": "Mos javob topilmadi",
+  "ask": {
+    "title": "Javob topmadingizmi?",
+    "description": "Savolingizni yuboring — u mas'ul yuristga taqsimlanadi va javob muddati nazorat qilinadi.",
+    "button": "Savol yuborish"
+  }
+}

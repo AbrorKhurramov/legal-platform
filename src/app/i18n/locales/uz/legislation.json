@@ -1,0 +1,55 @@
+{
+  "page": {
+    "title": "Qonunchilik o'zgarishlari",
+    "description": "O'zgarishni qayd etish, ta'sir qiladigan ichki hujjatlarni belgilash va mas'ullarga topshiriq berish."
+  },
+  "source": {
+    "LAW": "Qonun",
+    "PRESIDENT_DECREE": "Prezident farmoni",
+    "PRESIDENT_RESOLUTION": "Prezident qarori",
+    "CABINET_RESOLUTION": "VM qarori",
+    "CENTRAL_BANK": "Markaziy bank"
+  },
+  "status": {
+    "NEW": "Yangi",
+    "ANALYSIS": "Tahlil qilinmoqda",
+    "TASKS_ASSIGNED": "Topshiriqlar berildi",
+    "IMPLEMENTED": "Joriy etildi"
+  },
+  "impact": {
+    "LOW": "Past ta'sir",
+    "MEDIUM": "O'rta ta'sir",
+    "HIGH": "Yuqori ta'sir"
+  },
+  "fields": {
+    "title": "Hujjat nomi",
+    "docNumber": "Raqami",
+    "source": "Manba",
+    "publishedAt": "E'lon qilingan",
+    "effectiveAt": "Kuchga kirish",
+    "impactLevel": "Ta'sir darajasi",
+    "status": "Holat",
+    "progress": "Ijro",
+    "responsible": "Mas'ul",
+    "summary": "Mazmuni"
+  },
+  "section": {
+    "affectedDocuments": "Ta'sir qiladigan ichki hujjatlar",
+    "tasks": "Topshiriqlar"
+  },
+  "task": {
+    "title": "Topshiriq",
+    "titlePlaceholder": "Masalan: nizomga o'zgartirish loyihasini tayyorlash",
+    "assignee": "Mas'ul",
+    "dueDate": "Muddat",
+    "add": "Topshiriq berish"
+  },
+  "daysLeft_one": "{{count}} kun qoldi",
+  "daysLeft_other": "{{count}} kun qoldi",
+  "searchPlaceholder": "Hujjat nomi yoki raqami",
+  "drawerTitle": "Qonunchilik o'zgarishi",
+  "create": {
+    "title": "O'zgarishni qayd etish",
+    "button": "O'zgarish qo'shish"
+  }
+}

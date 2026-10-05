@@ -1,0 +1,159 @@
+{
+  "page": {
+    "title": "Murojaatlar",
+    "description": "Yagona murojaatlar oynasi: shartnoma va ichki hujjatlar ekspertizasi, huquqiy maslahat, korporativ va boshqa topshiriqlar."
+  },
+  "status": {
+    "NEW": "Yangi",
+    "ASSIGNED": "Yuristga biriktirildi",
+    "IN_REVIEW": "Ko'rib chiqilmoqda",
+    "INCOMPLETE_DOCS": "Hujjatlar to'liq emas",
+    "ON_APPROVAL": "Kelishuvda",
+    "COMPLETED": "Yakunlandi",
+    "REJECTED": "Rad etildi"
+  },
+  "type": {
+    "CONTRACT_REVIEW": "Shartnoma ekspertizasi",
+    "INTERNAL_DOC_REVIEW": "Ichki hujjat ekspertizasi",
+    "BANK_DECISION_REVIEW": "Bank qarori loyihasi",
+    "LEGAL_CONSULTATION": "Huquqiy maslahat",
+    "CLAIM_PREPARATION": "Talabnoma / da'vo tayyorlash",
+    "CORPORATE_SUPPORT": "Korporativ boshqaruv",
+    "CITIZEN_APPEAL": "Jismoniy/yuridik shaxs murojaati",
+    "OTHER": "Boshqa topshiriq"
+  },
+  "priority": {
+    "LOW": "Past",
+    "MEDIUM": "O'rta",
+    "HIGH": "Yuqori",
+    "CRITICAL": "Shoshilinch"
+  },
+  "complexity": {
+    "SIMPLE": "Oddiy",
+    "MEDIUM": "O'rta",
+    "COMPLEX": "Murakkab"
+  },
+  "action": {
+    "ASSIGN": "Yurist biriktirish",
+    "START_REVIEW": "Ko'rib chiqishni boshlash",
+    "REQUEST_DOCS": "Hujjat so'rash",
+    "PROVIDE_DOCS": "Hujjatlarni taqdim etish",
+    "SUBMIT_OPINION": "Xulosa yuborish",
+    "APPROVE": "Kelishish (viza)",
+    "RETURN": "Qayta ishlashga qaytarish",
+    "REJECT": "Rad etish"
+  },
+  "actionSubmit": {
+    "ASSIGN": "Biriktirish",
+    "START_REVIEW": "Boshlash",
+    "REQUEST_DOCS": "So'rov yuborish",
+    "PROVIDE_DOCS": "Yuklash",
+    "SUBMIT_OPINION": "Kelishuvga yuborish",
+    "APPROVE": "Kelishildi",
+    "RETURN": "Qaytarish",
+    "REJECT": "Rad etish"
+  },
+  "actionHint": {
+    "ASSIGN": "Murojaatni ko'rib chiqish uchun mas'ul yuristni tanlang.",
+    "START_REVIEW": "Murojaat «Ko'rib chiqilmoqda» holatiga o'tadi.",
+    "REQUEST_DOCS": "Murojaat «Hujjatlar to'liq emas» holatiga o'tadi va hujjatlar taqdim etilgunga qadar muddat to'xtatiladi. Qaysi hujjatlar yetishmasligini yozing.",
+    "PROVIDE_DOCS": "Yetishmayotgan hujjatni yuklang. Muddat to'xtatilgan kunlar soniga uzaytiriladi.",
+    "SUBMIT_OPINION": "Huquqiy xulosa kelishuv zanjiriga (bo'lim boshlig'i → departament direktori) yuboriladi.",
+    "APPROVE": "Xulosani kelishasiz. Zanjirdagi oxirgi viza bilan murojaat yakunlanadi.",
+    "RETURN": "Xulosa yuristga qayta ishlash uchun qaytariladi. Sababini ko'rsating.",
+    "REJECT": "Murojaat rad etiladi va yakunlanadi. Sababini ko'rsating."
+  },
+  "opinionResult": {
+    "POSITIVE": "Ijobiy",
+    "WITH_REMARKS": "E'tirozlar bilan",
+    "NEGATIVE": "Salbiy"
+  },
+  "approvalDecision": {
+    "PENDING": "Kutilmoqda",
+    "APPROVED": "Kelishildi",
+    "RETURNED": "Qaytarildi"
+  },
+  "historyType": {
+    "CREATED": "murojaat yaratdi",
+    "VIEWED": "ko'rdi",
+    "ASSIGNED": "yurist biriktirdi",
+    "STATUS_CHANGED": "holatni o'zgartirdi",
+    "DOCUMENT_UPLOADED": "hujjat versiyasini yukladi",
+    "OPINION_SUBMITTED": "huquqiy xulosa yubordi",
+    "APPROVED": "kelishdi",
+    "RETURNED": "qayta ishlashga qaytardi",
+    "REJECTED": "rad etdi"
+  },
+  "fields": {
+    "number": "Raqam",
+    "title": "Mavzu",
+    "type": "Ish turi",
+    "status": "Holat",
+    "priority": "Ustuvorlik",
+    "initiator": "Tashabbuskor",
+    "lawyer": "Mas'ul yurist",
+    "dueDate": "Muddat",
+    "branch": "Filial",
+    "complexity": "Murakkablik",
+    "createdAt": "Kelib tushgan",
+    "pausedDays": "To'xtatilgan kunlar",
+    "completedAt": "Yakunlangan",
+    "counterparty": "Kontragent",
+    "contractAmount": "Shartnoma summasi",
+    "currentVersion": "Hujjat versiyasi",
+    "finalResult": "Yakuniy natija",
+    "description": "Tavsif",
+    "opinionResult": "Xulosa natijasi",
+    "opinionText": "Xulosa matni",
+    "comment": "Izoh",
+    "commentRequired": "Izoh (majburiy)"
+  },
+  "filters": {
+    "searchPlaceholder": "Raqam, mavzu yoki kontragent bo'yicha qidirish",
+    "overdueOnly": "Faqat muddati o'tganlar",
+    "mineOnly": "Menga tegishli"
+  },
+  "section": {
+    "description": "Murojaat mazmuni",
+    "details": "Rekvizitlar"
+  },
+  "create": {
+    "button": "Yangi murojaat",
+    "title": "Yangi murojaat",
+    "submit": "Yuborish",
+    "titlePlaceholder": "Masalan: “...” MChJ bilan ijara shartnomasi loyihasi",
+    "descriptionPlaceholder": "Nima ko'rib chiqilishi kerak, qanday savol bor, qaysi masalaga e'tibor berish lozim",
+    "slaHint": "Muddat ustuvorlikka qarab avtomatik taklif qilinadi: shoshilinch — 2, yuqori — 5, o'rta — 7, past — 10 kun.",
+    "attachFile": "Hujjatni biriktirish",
+    "attachHint": "DOC, DOCX yoki PDF · 1-versiya sifatida saqlanadi",
+    "confidential": "Maxfiy ish",
+    "confidentialHint": "Faqat mas'ul yurist, tashabbuskor va rahbariyat ko'ra oladi"
+  },
+  "documents": {
+    "empty": "Hujjatlar hali yuklanmagan",
+    "current": "Joriy tahrir",
+    "download": "Yuklab olish"
+  },
+  "approvals": {
+    "empty": "Kelishuv zanjiri xulosa yuborilgandan so'ng shakllanadi",
+    "signatureNotice": "Platformadagi «Kelishildi» belgisi ichki kelishuvni bildiradi va elektron raqamli imzo hisoblanmaydi. Yuridik kuchga ega imzo EHAT tizimida alohida qo'yiladi."
+  },
+  "opinion": {
+    "empty": "Huquqiy xulosa hali tayyorlanmagan",
+    "aiDraft": "AI qoralamasi asosida",
+    "aiFill": "AI qoralama",
+    "textPlaceholder": "Huquqiy tahlil, e'tirozlar va xulosa",
+    "aiWarning": "Matn AI yordamchi tomonidan tayyorlandi. Yuborishdan oldin uni to'liq tekshiring va tahrirlang — tizim mustaqil huquqiy rozilik bermaydi."
+  },
+  "tabs": {
+    "overview": "Umumiy",
+    "documents": "Hujjatlar",
+    "approvals": "Kelishuv",
+    "opinion": "Xulosa",
+    "history": "Tarix"
+  },
+  "detail": {
+    "notAvailable": "Murojaat topilmadi yoki uni ko'rish uchun vakolatingiz yo'q",
+    "backToList": "Murojaatlar ro'yxatiga"
+  }
+}

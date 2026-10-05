@@ -1,0 +1,11 @@
+{
+  "title": "Tizimga kirish",
+  "subtitle": "Bank ichki hisob ma'lumotlaringiz bilan kiring",
+  "username": "Login",
+  "usernamePlaceholder": "masalan, dilnoza.k",
+  "password": "Parol",
+  "submit": "Kirish",
+  "invalidCredentials": "Login yoki parol noto'g'ri",
+  "demoAccounts": "Demo foydalanuvchilar",
+  "demoHint": "Rolni tanlab bir bosishda kiring yoki loginni qo'lda kiriting. Barcha demo hisoblar uchun parol: {{password}}"
+}

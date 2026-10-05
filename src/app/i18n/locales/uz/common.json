@@ -1,0 +1,90 @@
+{
+  "cancel": "Bekor qilish",
+  "confirm": "Tasdiqlash",
+  "save": "Saqlash",
+  "create": "Yaratish",
+  "close": "Yopish",
+  "select": "Tanlang",
+  "resetFilters": "Tozalash",
+  "notAssigned": "Biriktirilmagan",
+  "confidential": "Maxfiy",
+  "viewAll": "Barchasi",
+  "daysCount_one": "{{count}} kun",
+  "daysCount_other": "{{count}} kun",
+  "app": {
+    "name": "Yuridik platforma",
+    "bank": "Agrobank · Yuridik departament",
+    "securityTitle": "Maxfiylik rejimi",
+    "securityNote": "Barcha amallar audit jurnalida qayd etiladi. Bank siri va shaxsga doir ma'lumotlar faqat vakolat doirasida ko'rsatiladi."
+  },
+  "auth": {
+    "headline": "Yuridik ishlarni boshqarishning yagona platformasi",
+    "description": "Shartnomalar, ichki hujjatlar, huquqiy xulosalar, sud ishlari va murojaatlarni yagona tartibda qabul qilish, ko'rib chiqish, kelishish va ijrosini nazorat qilish.",
+    "feature1": "Yagona murojaatlar oynasi va muddat nazorati",
+    "feature2": "Huquqiy xulosalar reestri va bosqichma-bosqich vizalash",
+    "feature3": "Sud ishlari, qonunchilik va xatarlar reestrlari",
+    "feature4": "Rollar bo'yicha kirish va to'liq audit jurnali",
+    "footer": "Demo versiya · barcha ma'lumotlar soxta va faqat namoyish uchun"
+  },
+  "nav": {
+    "groups": {
+      "main": "Asosiy",
+      "modules": "Yuridik modullar",
+      "control": "Nazorat"
+    },
+    "dashboard": "Rahbariyat paneli",
+    "matters": "Murojaatlar",
+    "opinions": "Huquqiy xulosalar",
+    "courtCases": "Sud ishlari",
+    "legislation": "Qonunchilik",
+    "risks": "Huquqiy xatarlar",
+    "knowledge": "Maslahatlar bazasi",
+    "audit": "Audit jurnali"
+  },
+  "breadcrumbs": {
+    "home": "Bosh sahifa",
+    "matters": "Murojaatlar",
+    "matterDetail": "Murojaat kartasi",
+    "opinions": "Huquqiy xulosalar",
+    "courtCases": "Sud ishlari",
+    "legislation": "Qonunchilik o'zgarishlari",
+    "risks": "Huquqiy xatarlar",
+    "knowledge": "Maslahatlar bazasi",
+    "audit": "Audit jurnali"
+  },
+  "header": {
+    "menu": "Menyu",
+    "logout": "Tizimdan chiqish",
+    "resetDemo": "Demo ma'lumotlarni tiklash",
+    "resetDemoConfirm": "Kiritilgan barcha o'zgarishlar o'chiriladi va demo ma'lumotlar boshlang'ich holatga qaytariladi. Shundan so'ng qayta kirish kerak bo'ladi."
+  },
+  "role": {
+    "BRANCH": "Filial xodimi",
+    "HEAD_OFFICE": "Bosh ofis xodimi",
+    "LAWYER": "Yurist",
+    "HEAD": "Rahbar"
+  },
+  "deadline": {
+    "overdue_one": "{{count}} kun kechikdi",
+    "overdue_other": "{{count}} kun kechikdi",
+    "left_one": "{{count}} kun qoldi",
+    "left_other": "{{count}} kun qoldi",
+    "today": "Bugun tugaydi",
+    "paused": "Muddat to'xtatilgan"
+  },
+  "toast": {
+    "success": "Muvaffaqiyatli bajarildi",
+    "error": "Xatolik yuz berdi. Qayta urinib ko'ring"
+  },
+  "validation": {
+    "required": "Majburiy maydon",
+    "minLength_one": "Kamida {{count}} ta belgi kiriting",
+    "minLength_other": "Kamida {{count}} ta belgi kiriting"
+  },
+  "system": {
+    "forbidden": "Bu bo'limni ko'rish uchun vakolatingiz yetarli emas",
+    "notFound": "Sahifa topilmadi",
+    "toMatters": "Murojaatlarga o'tish",
+    "toHome": "Bosh sahifaga qaytish"
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "page": {
+    "title": "Huquqiy xulosalar reestri",
+    "description": "Yuristlar tomonidan berilgan barcha xulosalar: natija, kelishuv holati va tasdiqlagan rahbar."
+  },
+  "fields": {
+    "number": "Xulosa raqami",
+    "matter": "Murojaat",
+    "result": "Natija",
+    "status": "Holat",
+    "lawyer": "Yurist",
+    "createdAt": "Berilgan sana",
+    "approvedAt": "Tasdiqlangan"
+  },
+  "result": {
+    "POSITIVE": "Ijobiy",
+    "WITH_REMARKS": "E'tirozlar bilan",
+    "NEGATIVE": "Salbiy"
+  },
+  "status": {
+    "ON_APPROVAL": "Kelishuvda",
+    "APPROVED": "Tasdiqlangan"
+  },
+  "searchPlaceholder": "Xulosa yoki murojaat raqami, mavzu"
+}

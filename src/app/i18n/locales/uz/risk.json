@@ -1,0 +1,54 @@
+{
+  "page": {
+    "title": "Huquqiy xatarlar reestri",
+    "description": "Xatar kartasi, darajasi, bartaraf etish choralari va ijro nazorati."
+  },
+  "category": {
+    "CONTRACT": "Shartnomaviy",
+    "LITIGATION": "Sud-da'vo",
+    "REGULATORY": "Regulyator",
+    "CORPORATE": "Korporativ",
+    "DATA_PROTECTION": "Ma'lumotlar himoyasi",
+    "OPERATIONAL": "Operatsion"
+  },
+  "level": {
+    "LOW": "Past",
+    "MEDIUM": "O'rta",
+    "HIGH": "Yuqori",
+    "CRITICAL": "Kritik"
+  },
+  "status": {
+    "IDENTIFIED": "Aniqlangan",
+    "MITIGATING": "Bartaraf etilmoqda",
+    "CONTROLLED": "Nazoratda",
+    "CLOSED": "Yopilgan"
+  },
+  "fields": {
+    "code": "Kod",
+    "title": "Xatar",
+    "category": "Toifa",
+    "level": "Daraja",
+    "status": "Holat",
+    "owner": "Mas'ul",
+    "dueDate": "Muddat",
+    "probability": "Ehtimollik",
+    "impact": "Ta'sir",
+    "score": "Baho (ehtimollik × ta'sir)",
+    "branch": "Bo'linma",
+    "relatedMatter": "Bog'liq murojaat",
+    "description": "Tavsif",
+    "mitigation": "Bartaraf etish choralari",
+    "note": "Nazorat izohi"
+  },
+  "section": {
+    "notes": "Ijro nazorati"
+  },
+  "searchPlaceholder": "Kod yoki xatar nomi",
+  "notePlaceholder": "Bajarilgan choralar haqida qisqacha",
+  "drawerTitle": "Xatar kartasi",
+  "create": {
+    "title": "Yangi xatar kartasi",
+    "button": "Xatar qo'shish",
+    "scoreHint": "Hisoblangan baho: {{score}} (5 dan kam — past, 10 dan — yuqori, 16 dan — kritik)"
+  }
+}

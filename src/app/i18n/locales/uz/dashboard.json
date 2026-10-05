@@ -1,0 +1,67 @@
+{
+  "page": {
+    "title": "Rahbariyat paneli",
+    "description": "Ish hajmi, muddatlar, kechikishlar, sud natijalari va filiallar kesimida umumiy ko'rinish."
+  },
+  "kpi": {
+    "active": "Jarayondagi ishlar",
+    "totalHint_one": "Jami {{count}} ta murojaat",
+    "totalHint_other": "Jami {{count}} ta murojaat",
+    "overdue": "Muddati o'tgan",
+    "overdueHint": "Darhol e'tibor talab etadi",
+    "incompleteDocs": "Hujjatlar to'liq emas",
+    "incompleteDocsHint": "Muddat to'xtatilgan",
+    "onApproval": "Kelishuvda",
+    "onApprovalHint": "Vizalash kutilmoqda",
+    "completedThisMonth": "Shu oyda yakunlandi",
+    "completedHint": "Tasdiqlangan xulosalar",
+    "avgResolution": "O'rtacha muddat",
+    "days_one": "{{count}} kun",
+    "days_other": "{{count}} kun",
+    "avgResolutionHint": "To'xtatilgan kunlarsiz"
+  },
+  "charts": {
+    "byStatus": "Holatlar bo'yicha",
+    "matters": "murojaat",
+    "trend": "Oylik dinamika",
+    "trendHint": "So'nggi 6 oy",
+    "created": "Kelib tushgan",
+    "completed": "Yakunlangan",
+    "byType": "Ish turlari bo'yicha"
+  },
+  "workload": {
+    "title": "Yuristlar yuklamasi",
+    "subtitle": "Faol, kechikkan va yakunlangan ishlar",
+    "lawyer": "Yurist",
+    "active": "Faol",
+    "overdue": "Kechikkan",
+    "completed": "Yakunlangan",
+    "score": "Ball",
+    "scoreHint": "Ball — yakunlangan ishlar murakkabligi bo'yicha: oddiy = 1, o'rta = 2, murakkab = 3. Faoliyat faqat hujjatlar soni bilan baholanmaydi."
+  },
+  "branches": {
+    "title": "Filiallar kesimida",
+    "subtitle": "Jami · yakunlangan · kechikkan",
+    "overdue_one": "{{count}} kechikkan",
+    "overdue_other": "{{count}} kechikkan"
+  },
+  "court": {
+    "title": "Sud ishlari natijalari",
+    "subtitle": "{{active}} ta faol · jami {{total}} ta",
+    "cases": "ish",
+    "claimed": "Da'vo summasi",
+    "recovered": "Undirilgan",
+    "rate": "Undiruv darajasi"
+  },
+  "risk": {
+    "title": "Huquqiy xatarlar xaritasi",
+    "subtitle_one": "{{count}} ta ochiq xatar",
+    "subtitle_other": "{{count}} ta ochiq xatar"
+  },
+  "deadlines": {
+    "overdueTitle": "Muddati o'tgan murojaatlar",
+    "noOverdue": "Muddati o'tgan murojaatlar yo'q",
+    "hearingsTitle": "Yaqin sud majlislari",
+    "noHearings": "Rejalashtirilgan sud majlislari yo'q"
+  }
+}

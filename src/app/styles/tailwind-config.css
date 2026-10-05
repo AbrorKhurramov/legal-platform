@@ -1,0 +1,26 @@
+@import "tailwindcss";
+@import "../../../node_modules/local-agro-ui/dist/style.css";
+@source "../../../node_modules/local-agro-ui/dist";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+
+  --text-h1: 2rem;
+  --text-h1--line-height: 2.5rem;
+  --text-h1--font-weight: 700;
+  --text-h2: 1.75rem;
+  --text-h2--line-height: 2.25rem;
+  --text-h2--font-weight: 700;
+  --text-h3: 1.5rem;
+  --text-h3--line-height: 2rem;
+  --text-h3--font-weight: 700;
+  --text-h4: 1.25rem;
+  --text-h4--line-height: 1.75rem;
+  --text-h4--font-weight: 700;
+  --text-h5: 1.125rem;
+  --text-h5--line-height: 1.625rem;
+  --text-h5--font-weight: 600;
+  --text-h6: 1rem;
+  --text-h6--line-height: 1.5rem;
+  --text-h6--font-weight: 600;
+}

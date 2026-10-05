@@ -1,0 +1,75 @@
+{
+  "page": {
+    "title": "Панель руководства",
+    "description": "Объём работы, сроки, просрочки, результаты судебных дел и срез по филиалам."
+  },
+  "kpi": {
+    "active": "Дела в работе",
+    "totalHint_one": "Всего {{count}} обращение",
+    "totalHint_few": "Всего {{count}} обращения",
+    "totalHint_many": "Всего {{count}} обращений",
+    "totalHint_other": "Всего {{count}} обращения",
+    "overdue": "Просрочено",
+    "overdueHint": "Требует немедленного внимания",
+    "incompleteDocs": "Неполный комплект",
+    "incompleteDocsHint": "Срок приостановлен",
+    "onApproval": "На согласовании",
+    "onApprovalHint": "Ожидают визирования",
+    "completedThisMonth": "Завершено в этом месяце",
+    "completedHint": "Утверждённые заключения",
+    "avgResolution": "Средний срок",
+    "days_one": "{{count}} день",
+    "days_few": "{{count}} дня",
+    "days_many": "{{count}} дней",
+    "days_other": "{{count}} дня",
+    "avgResolutionHint": "Без учёта приостановки"
+  },
+  "charts": {
+    "byStatus": "По статусам",
+    "matters": "обращений",
+    "trend": "Динамика по месяцам",
+    "trendHint": "Последние 6 месяцев",
+    "created": "Поступило",
+    "completed": "Завершено",
+    "byType": "По видам работ"
+  },
+  "workload": {
+    "title": "Нагрузка юристов",
+    "subtitle": "Активные, просроченные и завершённые дела",
+    "lawyer": "Юрист",
+    "active": "В работе",
+    "overdue": "Просрочено",
+    "completed": "Завершено",
+    "score": "Балл",
+    "scoreHint": "Балл — по сложности завершённых дел: простое = 1, среднее = 2, сложное = 3. Работа оценивается не только количеством документов."
+  },
+  "branches": {
+    "title": "В разрезе филиалов",
+    "subtitle": "Всего · завершено · просрочено",
+    "overdue_one": "{{count}} просрочено",
+    "overdue_few": "{{count}} просрочено",
+    "overdue_many": "{{count}} просрочено",
+    "overdue_other": "{{count}} просрочено"
+  },
+  "court": {
+    "title": "Результаты судебных дел",
+    "subtitle": "{{active}} активных · всего {{total}}",
+    "cases": "дел",
+    "claimed": "Сумма исков",
+    "recovered": "Взыскано",
+    "rate": "Уровень взыскания"
+  },
+  "risk": {
+    "title": "Карта правовых рисков",
+    "subtitle_one": "{{count}} открытый риск",
+    "subtitle_few": "{{count}} открытых риска",
+    "subtitle_many": "{{count}} открытых рисков",
+    "subtitle_other": "{{count}} открытых риска"
+  },
+  "deadlines": {
+    "overdueTitle": "Просроченные обращения",
+    "noOverdue": "Просроченных обращений нет",
+    "hearingsTitle": "Ближайшие судебные заседания",
+    "noHearings": "Запланированных заседаний нет"
+  }
+}

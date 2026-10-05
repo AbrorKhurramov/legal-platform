@@ -1,0 +1,54 @@
+{
+  "page": {
+    "title": "Sud va da'vo ishlari",
+    "description": "Talabnomalar, protsessual muddatlar, sud majlislari, natijalar va undirilgan summalar hisobi."
+  },
+  "category": {
+    "BANK_CLAIM": "Bank da'vogar",
+    "CLAIM_AGAINST_BANK": "Bankka qarshi da'vo",
+    "ENFORCEMENT": "Ijro ishi"
+  },
+  "stage": {
+    "PRE_TRIAL": "Sudgacha",
+    "FIRST_INSTANCE": "Birinchi instansiya",
+    "APPEAL": "Apellyatsiya",
+    "CASSATION": "Kassatsiya",
+    "ENFORCEMENT": "Ijro",
+    "CLOSED": "Yopilgan"
+  },
+  "result": {
+    "PENDING": "Jarayonda",
+    "WON": "Bank foydasiga",
+    "PARTIAL": "Qisman",
+    "LOST": "Bank zarariga",
+    "SETTLED": "Kelishuv bitimi"
+  },
+  "fields": {
+    "caseNumber": "Ish raqami",
+    "parties": "Da'vogar → javobgar",
+    "court": "Sud",
+    "stage": "Bosqich",
+    "result": "Natija",
+    "claimAmount": "Da'vo summasi",
+    "nextHearingDate": "Keyingi majlis",
+    "plaintiff": "Da'vogar",
+    "defendant": "Javobgar",
+    "lawyer": "Mas'ul yurist",
+    "recoveredAmount": "Undirilgan summa",
+    "filedAt": "Kiritilgan sana",
+    "subject": "Da'vo predmeti",
+    "category": "Toifa"
+  },
+  "section": {
+    "deadlines": "Protsessual muddatlar",
+    "events": "Ish yuritish tarixi",
+    "documents": "Hujjatlar"
+  },
+  "searchPlaceholder": "Ish raqami, tomonlar yoki sud",
+  "drawerTitle": "Sud ishi",
+  "create": {
+    "title": "Yangi sud ishi",
+    "button": "Sud ishi qo'shish",
+    "courtPlaceholder": "Masalan: Toshkent shahar iqtisodiy sudi"
+  }
+}

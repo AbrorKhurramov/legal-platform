@@ -1,0 +1,37 @@
+{
+  "page": {
+    "title": "Audit jurnali",
+    "description": "Kim hujjatni ko'rgani, o'zgartirgani, kelishgani yoki rad etgani haqidagi o'zgarmas yozuvlar."
+  },
+  "action": {
+    "LOGIN": "Kirish",
+    "LOGOUT": "Chiqish",
+    "VIEW": "Ko'rish",
+    "CREATE": "Yaratish",
+    "UPDATE": "O'zgartirish",
+    "ASSIGN": "Biriktirish",
+    "UPLOAD": "Yuklash",
+    "APPROVE": "Kelishish",
+    "RETURN": "Qaytarish",
+    "REJECT": "Rad etish"
+  },
+  "entityType": {
+    "AUTH": "Autentifikatsiya",
+    "MATTER": "Murojaat",
+    "COURT_CASE": "Sud ishi",
+    "LEGISLATION": "Qonunchilik",
+    "RISK": "Xatar",
+    "KNOWLEDGE": "Maslahatlar bazasi"
+  },
+  "fields": {
+    "createdAt": "Vaqt",
+    "user": "Foydalanuvchi",
+    "action": "Amal",
+    "entity": "Obyekt",
+    "details": "Tafsilot",
+    "ip": "IP manzil",
+    "period": "Davr"
+  },
+  "searchPlaceholder": "Foydalanuvchi, obyekt yoki tafsilot",
+  "notice": "Jurnal yozuvlarini tahrirlash yoki o'chirish imkoni yo'q. Ma'lumotlarni saqlash muddati va tashqi pudratchilarga taqdim etish tartibi «Bank siri to'g'risida» va «Shaxsga doir ma'lumotlar to'g'risida»gi qonunlar asosida belgilanadi."
+}
