@@ -52,7 +52,7 @@ export const DEPUTY_ID = "u-head-2";
 
 export const SEED_USERS: UserRecord[] = [
   user(DIRECTOR_ID, "rustam.x", "Rustam Xolmatov", "Yuridik departament direktori", UserRole.HEAD, HEAD_OFFICE_ID, true),
-  user(DEPUTY_ID, "feruza.s", "Feruza Saidova", "Shartnomaviy-huquqiy ishlar bo'limi boshlig'i", UserRole.HEAD, HEAD_OFFICE_ID),
+  user(DEPUTY_ID, "feruza.s", "Feruza Saidova", "Shartnomaviy-huquqiy ishlar bo'limi boshlig'i", UserRole.HEAD, HEAD_OFFICE_ID, true),
   user("u-law-1", "dilnoza.k", "Dilnoza Karimova", "Bosh yuristkonsult", UserRole.LAWYER, HEAD_OFFICE_ID, true),
   user("u-law-2", "jasur.t", "Jasur Toshmatov", "Yetakchi yuristkonsult", UserRole.LAWYER, HEAD_OFFICE_ID),
   user("u-law-3", "malika.y", "Malika Yusupova", "Yuristkonsult (sud ishlari)", UserRole.LAWYER, HEAD_OFFICE_ID),
