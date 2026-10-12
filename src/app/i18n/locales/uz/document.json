@@ -1,0 +1,148 @@
+{
+  "fileManager": {
+    "title": "Fayl menejeri",
+    "description": "Hujjatlarni yuklang: ular MinIO'da saqlanadi va avtomatik qayta ishlanadi — PDF va rasmlar OCR'dan o'tadi, Word va Excel'dan matn va jadvallar ajratiladi."
+  },
+  "documents": {
+    "title": "Huquqiy hujjatlar",
+    "description": "Yuklangan hujjatlarning elektron versiyasi: matn, jadvallar, ajratilgan maydonlar va muhrlar. Asl faylni yuklab olish mumkin."
+  },
+  "status": {
+    "PENDING": "Navbatda",
+    "PROCESSING": "Qayta ishlanmoqda",
+    "DONE": "Tayyor",
+    "FAILED": "Xato"
+  },
+  "source": {
+    "OCR": "OCR",
+    "WORD": "Word",
+    "EXCEL": "Excel"
+  },
+  "docType": {
+    "contract": "Shartnoma",
+    "court_decision": "Sud qarori",
+    "power_of_attorney": "Ishonchnoma",
+    "letter": "Xat",
+    "other": "Boshqa",
+    "unknown": "Aniqlanmagan"
+  },
+  "language": {
+    "uz-Latn": "O'zbek (lotin)",
+    "uz-Cyrl": "O'zbek (kirill)",
+    "ru": "Rus"
+  },
+  "columns": {
+    "file": "Fayl",
+    "document": "Hujjat",
+    "status": "Holat",
+    "source": "Qayta ishlash",
+    "docType": "Hujjat turi",
+    "uploadedBy": "Yuklagan",
+    "pages": "Sahifalar",
+    "folder": "Papka"
+  },
+  "filters": {
+    "fileSearch": "Fayl nomi bo'yicha qidirish",
+    "documentSearch": "Hujjat matni yoki nomi bo'yicha qidirish",
+    "mineOnly": "Faqat men yuklaganlar",
+    "needsReview": "Tekshirish kerak"
+  },
+  "upload": {
+    "title": "Fayllarni shu yerga tashlang yoki tanlang",
+    "hint_one": "PDF, Word, Excel, rasm (PNG, JPEG, TIFF) · har biri 50 MB gacha · bir martada {{count}} tagacha",
+    "hint_other": "PDF, Word, Excel, rasm (PNG, JPEG, TIFF) · har biri 50 MB gacha · bir martada {{count}} tagacha",
+    "rejected": "“{{name}}” qabul qilinmaydi: format noto'g'ri, fayl bo'sh yoki 50 MB dan katta.",
+    "tooMany_one": "Bir martada ko'pi bilan {{count}} ta fayl.",
+    "tooMany_other": "Bir martada ko'pi bilan {{count}} ta fayl.",
+    "remove": "Olib tashlash",
+    "confidential": "Maxfiy hujjat",
+    "confidentialHint": "Faqat siz va rahbar ko'radi",
+    "submit_one": "{{count}} ta faylni yuklash",
+    "submit_other": "{{count}} ta faylni yuklash",
+    "submitEmpty": "Fayllarni yuklash",
+    "folder": "Qaysi papkaga",
+    "folderRequired": "Yuklash uchun papkani tanlang"
+  },
+  "retrying_one": "{{count}}-urinish, keyinroq qayta uriniladi",
+  "retrying_other": "{{count}}-urinish, keyinroq qayta uriniladi",
+  "reprocess": "Qayta ishlash",
+  "needsReview": "Tekshirish kerak",
+  "download": "Asl faylni yuklab olish",
+  "downloadFailed": "Faylni yuklab bo'lmadi",
+  "tabs": {
+    "text": "Matn",
+    "fields": "Maydonlar",
+    "stamps": "Muhrlar",
+    "original": "Asl hujjat"
+  },
+  "text": {
+    "empty": "Hujjatda matn topilmadi",
+    "page": "{{page}}-sahifa",
+    "confidence": "aniqlik {{value}}%"
+  },
+  "fields": {
+    "empty": "Maydonlar ajratilmadi",
+    "page": "{{page}}-sahifa"
+  },
+  "stamps": {
+    "empty": "Muhr va imzolar topilmadi",
+    "organization": "Tashkilot",
+    "number": "Raqam",
+    "date": "Sana",
+    "person": "Shaxs",
+    "handwritten": "Qo'lda yozilgan: {{fields}} — tekshiring",
+    "kind": {
+      "seal": "Muhr",
+      "stamp": "Shtamp",
+      "signature": "Imzo",
+      "handwritten_note": "Qo'lda yozuv",
+      "other": "Boshqa belgi"
+    }
+  },
+  "block": {
+    "stamp": "Muhr",
+    "signature": "Imzo"
+  },
+  "detail": {
+    "notAvailable": "Hujjat topilmadi yoki uni ko'rish uchun vakolatingiz yo'q",
+    "backToList": "Hujjatlar ro'yxatiga",
+    "language": "Til",
+    "confidence": "OCR aniqligi",
+    "uploadedAt": "Yuklangan",
+    "processedAt": "Qayta ishlangan",
+    "size": "Hajmi",
+    "failed": "Hujjatni qayta ishlab bo'lmadi",
+    "processing": "Hujjat qayta ishlanmoqda. Sahifa avtomatik yangilanadi.",
+    "needsReviewHint": "Ba'zi qiymatlar ishonchsiz o'qilgan (masalan, qo'lda yozilgan sana yoki raqam). Ularni asl fayl bilan solishtiring."
+  },
+  "folders": {
+    "title": "Papkalar",
+    "all": "Barcha hujjatlar",
+    "select": "Papkani tanlang",
+    "empty": "Papka topilmadi",
+    "unfiled": "Papkasiz",
+    "new": "Yangi papka",
+    "addChild": "Ichki papka qo'shish",
+    "rename": "Nomini o'zgartirish",
+    "delete": "O'chirish",
+    "createTitle": "Yangi papka",
+    "renameTitle": "Papka nomini o'zgartirish",
+    "name": "Papka nomi",
+    "parent": "Qaysi papka ichida",
+    "noParent": "Yuqori daraja",
+    "deleteTitle": "Papkani o'chirish",
+    "deleteConfirm": "«{{name}}» papkasi o'chiriladi.",
+    "deleteNotEmpty": "«{{name}}» bo'sh emas: avval ichidagi fayl va papkalarni boshqa joyga ko'chiring."
+  },
+  "move": {
+    "title": "Boshqa papkaga ko'chirish",
+    "target": "Yangi papka",
+    "submit": "Ko'chirish"
+  },
+  "viewer": {
+    "unsupported": "{{format}} formatini brauzerda ko'rsatib bo'lmaydi. Asl faylni yuklab oling yoki ajratilgan matnni ko'ring.",
+    "failed": "Hujjatni ko'rsatib bo'lmadi. Asl faylni yuklab oling.",
+    "emptySheet": "Varaq bo'sh",
+    "sheetCut": "Varaq katta: faqat birinchi {{rows}} qator va {{columns}} ustun ko'rsatildi. To'liq ko'rish uchun faylni yuklab oling."
+  }
+}

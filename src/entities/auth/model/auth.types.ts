@@ -7,7 +7,14 @@ export interface LoginRequestBody {
 
 export interface LoginResponseDTO {
   accessToken: string;
+  expiresAt: string;
+  mustChangePassword: boolean;
   user: UserDTO;
+}
+
+export interface ChangePasswordRequestBody {
+  currentPassword: string;
+  newPassword: string;
 }
 
 export interface DemoAccountDTO {

@@ -8,8 +8,10 @@ class UserApi {
 
   private readonly scopedApi = createScopedApi("user-service");
 
+  private readonly backendApi = createScopedApi("api/v1");
+
   getMe = async () => {
-    const response = await this.scopedApi.get<UserDTO>("/users/me", undefined, false);
+    const response = await this.backendApi.get<UserDTO>("/users/me", undefined, false);
     return response.data;
   };
 

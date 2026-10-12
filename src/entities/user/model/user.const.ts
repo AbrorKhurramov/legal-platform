@@ -3,4 +3,5 @@ export const enum UserRole {
   HEAD_OFFICE = "HEAD_OFFICE",
   LAWYER = "LAWYER",
   HEAD = "HEAD",
+  ADMIN = "ADMIN",
 }

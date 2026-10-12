@@ -8,8 +8,16 @@ class BranchApi {
 
   private readonly scopedApi = createScopedApi("branch-service");
 
+  private readonly backendApi = createScopedApi("api/v1");
+
   getBranches = async () => {
     const response = await this.scopedApi.get<BranchDTO[]>("/branches");
+    return response.data;
+  };
+
+  /** From the real backend; the mock-backed tabs keep {@link getBranches} until they migrate. */
+  getDirectoryBranches = async () => {
+    const response = await this.backendApi.get<BranchDTO[]>("/branches");
     return response.data;
   };
 }

@@ -24,13 +24,15 @@
     "feature2": "Huquqiy xulosalar reestri va bosqichma-bosqich vizalash",
     "feature3": "Sud ishlari, qonunchilik va xatarlar reestrlari",
     "feature4": "Rollar bo'yicha kirish va to'liq audit jurnali",
-    "footer": "Demo versiya · barcha ma'lumotlar soxta va faqat namoyish uchun"
+    "footer": "Sinov versiyasi · kirish, fayllar va hujjatlar — haqiqiy backend, qolgan bo'limlar — namunaviy ma'lumotlar"
   },
   "nav": {
     "groups": {
       "main": "Asosiy",
       "modules": "Yuridik modullar",
-      "control": "Nazorat"
+      "control": "Nazorat",
+      "documents": "Hujjatlar",
+      "admin": "Boshqaruv"
     },
     "dashboard": "Rahbariyat paneli",
     "matters": "Murojaatlar",
@@ -39,7 +41,10 @@
     "legislation": "Qonunchilik",
     "risks": "Huquqiy xatarlar",
     "knowledge": "Maslahatlar bazasi",
-    "audit": "Audit jurnali"
+    "audit": "Audit jurnali",
+    "documents": "Huquqiy hujjatlar",
+    "fileManager": "Fayl menejeri",
+    "adminUsers": "Foydalanuvchilar"
   },
   "breadcrumbs": {
     "home": "Bosh sahifa",
@@ -50,7 +55,11 @@
     "legislation": "Qonunchilik o'zgarishlari",
     "risks": "Huquqiy xatarlar",
     "knowledge": "Maslahatlar bazasi",
-    "audit": "Audit jurnali"
+    "audit": "Audit jurnali",
+    "documents": "Huquqiy hujjatlar",
+    "documentDetail": "Hujjat",
+    "fileManager": "Fayl menejeri",
+    "adminUsers": "Foydalanuvchilar"
   },
   "header": {
     "menu": "Menyu",
@@ -62,7 +71,8 @@
     "BRANCH": "Filial xodimi",
     "HEAD_OFFICE": "Bosh ofis xodimi",
     "LAWYER": "Yurist",
-    "HEAD": "Rahbar"
+    "HEAD": "Rahbar",
+    "ADMIN": "Administrator"
   },
   "deadline": {
     "overdue_one": "{{count}} kun kechikdi",

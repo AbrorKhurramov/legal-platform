@@ -7,5 +7,18 @@
   "submit": "Kirish",
   "invalidCredentials": "Login yoki parol noto'g'ri",
   "demoAccounts": "Demo foydalanuvchilar",
-  "demoHint": "Rolni tanlab bir bosishda kiring yoki loginni qo'lda kiriting. Barcha demo hisoblar uchun parol: {{password}}"
+  "demoHint": "Rolni tanlab bir bosishda kiring yoki loginni qo'lda kiriting. Barcha demo hisoblar uchun parol: {{password}}",
+  "hint": "Login va parolni administratordan oling. Birinchi kirishda vaqtinchalik parolni almashtirasiz.",
+  "serverUnavailable": "Server bilan bog'lanib bo'lmadi. Backend ishga tushirilganini tekshiring.",
+  "changePassword": {
+    "title": "Parolni almashtiring",
+    "description": "Siz vaqtinchalik parol bilan kirdingiz. Davom etish uchun o'zingizning doimiy parolingizni o'rnating.",
+    "current": "Joriy (vaqtinchalik) parol",
+    "new": "Yangi parol",
+    "confirm": "Yangi parolni takrorlang",
+    "policy_one": "Kamida {{count}} belgi, kamida bitta harf va bitta raqam.",
+    "policy_other": "Kamida {{count}} belgi, kamida bitta harf va bitta raqam.",
+    "mismatch": "Parollar mos kelmadi",
+    "submit": "Parolni saqlash"
+  }
 }

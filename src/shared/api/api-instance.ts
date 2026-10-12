@@ -35,7 +35,8 @@ export class RequestWithToast {
       if (showToast && method !== "get") toast.success(response.data.message || i18next.t("common:toast.success"));
       return { data: response.data.data, message: response.data.message };
     } catch (error) {
-      if (error instanceof AxiosError && error.response?.status === UNAUTHORIZED_STATUS) {
+      const isLoginAttempt = String(config.url ?? url).endsWith("/auth/login");
+      if (error instanceof AxiosError && error.response?.status === UNAUTHORIZED_STATUS && !isLoginAttempt) {
         localStorage.removeItem(STORAGE_KEYS.accessToken);
         window.location.assign("/login");
       }

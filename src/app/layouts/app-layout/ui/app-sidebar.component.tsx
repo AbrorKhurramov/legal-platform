@@ -37,7 +37,7 @@ export const AppSidebar = (props: IAppSidebarProps) => {
       </div>
       <nav className="flex-1 overflow-y-auto px-3 py-4">
         {NAVIGATION.map((group) => {
-          const items = group.items.filter((item) => hasAccess(user?.role, item.guard));
+          const items = group.items.filter((item) => hasAccess(user?.role, item.guard) && (!item.requiresFileManager || user?.fileManagerAccess));
           if (!items.length) return null;
           return (
             <div key={group.key} className="mb-5">

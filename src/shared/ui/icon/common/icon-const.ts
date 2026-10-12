@@ -19,10 +19,13 @@ import { ReactComponent as EyeIcon } from "@/shared/assets/icons/eye.svg";
 import { ReactComponent as FileTextIcon } from "@/shared/assets/icons/file-text.svg";
 import { ReactComponent as FileIcon } from "@/shared/assets/icons/file.svg";
 import { ReactComponent as FilterIcon } from "@/shared/assets/icons/filter.svg";
+import { ReactComponent as FolderOpenIcon } from "@/shared/assets/icons/folder-open.svg";
+import { ReactComponent as FolderIcon } from "@/shared/assets/icons/folder.svg";
 import { ReactComponent as GavelIcon } from "@/shared/assets/icons/gavel.svg";
 import { ReactComponent as GlobeIcon } from "@/shared/assets/icons/globe.svg";
 import { ReactComponent as HistoryIcon } from "@/shared/assets/icons/history.svg";
 import { ReactComponent as InfoIcon } from "@/shared/assets/icons/info.svg";
+import { ReactComponent as KeyIcon } from "@/shared/assets/icons/key.svg";
 import { ReactComponent as LayersIcon } from "@/shared/assets/icons/layers.svg";
 import { ReactComponent as LightbulbIcon } from "@/shared/assets/icons/lightbulb.svg";
 import { ReactComponent as LockIcon } from "@/shared/assets/icons/lock.svg";
@@ -30,13 +33,16 @@ import { ReactComponent as LogoutIcon } from "@/shared/assets/icons/logout.svg";
 import { ReactComponent as MenuIcon } from "@/shared/assets/icons/menu.svg";
 import { ReactComponent as MessageIcon } from "@/shared/assets/icons/message.svg";
 import { ReactComponent as PauseIcon } from "@/shared/assets/icons/pause.svg";
+import { ReactComponent as PencilIcon } from "@/shared/assets/icons/pencil.svg";
 import { ReactComponent as PlusIcon } from "@/shared/assets/icons/plus.svg";
 import { ReactComponent as RefreshIcon } from "@/shared/assets/icons/refresh.svg";
 import { ReactComponent as ScaleIcon } from "@/shared/assets/icons/scale.svg";
 import { ReactComponent as SearchIcon } from "@/shared/assets/icons/search.svg";
 import { ReactComponent as SendIcon } from "@/shared/assets/icons/send.svg";
+import { ReactComponent as SheetIcon } from "@/shared/assets/icons/sheet.svg";
 import { ReactComponent as ShieldAlertIcon } from "@/shared/assets/icons/shield-alert.svg";
 import { ReactComponent as StampIcon } from "@/shared/assets/icons/stamp.svg";
+import { ReactComponent as TrashIcon } from "@/shared/assets/icons/trash.svg";
 import { ReactComponent as TrendingIcon } from "@/shared/assets/icons/trending.svg";
 import { ReactComponent as UndoIcon } from "@/shared/assets/icons/undo.svg";
 import { ReactComponent as UploadIcon } from "@/shared/assets/icons/upload.svg";
@@ -90,6 +96,12 @@ export const ICONS = {
   pause: PauseIcon,
   copy: CopyIcon,
   layers: LayersIcon,
+  folder: FolderIcon,
+  "folder-open": FolderOpenIcon,
+  pencil: PencilIcon,
+  trash: TrashIcon,
+  key: KeyIcon,
+  sheet: SheetIcon,
 } as const;
 
 export type IconNameTypes = keyof typeof ICONS;

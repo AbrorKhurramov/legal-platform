@@ -1,4 +1,6 @@
-import { type AxiosAdapter, AxiosError, type AxiosInstance, type AxiosResponse, type InternalAxiosRequestConfig } from "axios";
+import axios, { type AxiosAdapter, AxiosError, type AxiosInstance, type AxiosResponse, type InternalAxiosRequestConfig } from "axios";
+
+import { UserRole } from "@/entities/user/user.entry";
 
 import { registerAuditHandlers } from "./handlers/audit.handlers";
 import { registerAuthHandlers } from "./handlers/auth.handlers";
@@ -16,11 +18,36 @@ import { TOKEN_PREFIX, fail } from "./mock-utils";
 const MIN_DELAY = 200;
 const MAX_DELAY = 550;
 
+//* Aralash rejim: shu prefiksdagi so'rovlar haqiqiy backend'ga ketadi
+const REAL_BACKEND_PREFIX = "/api/v1/";
+
+//* Haqiqiy JWT egasining roli bo'yicha mock tablar uchun demo foydalanuvchi
+const DEMO_USER_BY_ROLE: Partial<Record<UserRole, string>> = {
+  [UserRole.HEAD]: "u-head-1",
+  [UserRole.LAWYER]: "u-law-1",
+  [UserRole.HEAD_OFFICE]: "u-ho-1",
+  [UserRole.BRANCH]: "u-br-1",
+};
+
+const decodeJwtRole = (token: string): UserRole | null => {
+  const payload = token.split(".")[1];
+  if (!payload) return null;
+  try {
+    const json = JSON.parse(atob(payload.replace(/-/g, "+").replace(/_/g, "/"))) as { role?: UserRole };
+    return json.role ?? null;
+  } catch {
+    return null;
+  }
+};
+
 const resolveUser = (config: InternalAxiosRequestConfig) => {
   const header = String(config.headers?.Authorization ?? "");
   const token = header.replace("Bearer ", "");
-  if (!token.startsWith(TOKEN_PREFIX)) return null;
-  return getDb().users.find((user) => user.id === token.slice(TOKEN_PREFIX.length)) ?? null;
+  const users = getDb().users;
+  if (token.startsWith(TOKEN_PREFIX)) return users.find((user) => user.id === token.slice(TOKEN_PREFIX.length)) ?? null;
+  const role = decodeJwtRole(token);
+  const demoId = role ? DEMO_USER_BY_ROLE[role] : undefined;
+  return demoId ? (users.find((user) => user.id === demoId) ?? null) : null;
 };
 
 const parseBody = (data: unknown): Record<string, unknown> => {
@@ -45,10 +72,14 @@ const toQuery = (params: unknown) =>
 
 const wait = () => new Promise((resolve) => setTimeout(resolve, MIN_DELAY + Math.random() * (MAX_DELAY - MIN_DELAY)));
 
+let realAdapter: AxiosAdapter | null = null;
+
 const mockAdapter: AxiosAdapter = async (config) => {
+  const path = (config.url ?? "").split("?")[0];
+  if (realAdapter && path.startsWith(REAL_BACKEND_PREFIX)) return realAdapter(config);
+
   await wait();
   const method = (config.method ?? "get").toLowerCase();
-  const path = (config.url ?? "").split("?")[0];
   const matched = matchRoute(method, path);
   const request: MockRequest = {
     params: matched?.params ?? {},
@@ -92,6 +123,7 @@ export const installMockServer = (instance: AxiosInstance) => {
   registerRiskHandlers();
   registerKnowledgeHandlers();
   registerAuditHandlers();
+  realAdapter = axios.getAdapter(instance.defaults.adapter);
   instance.defaults.adapter = mockAdapter;
   isInstalled = true;
 };

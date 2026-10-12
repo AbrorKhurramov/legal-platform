@@ -1,0 +1,65 @@
+{
+  "users": {
+    "title": "Foydalanuvchilar",
+    "description": "Tizimga faqat shu ro'yxatdagi xodimlar kira oladi. Rol, filial va fayl menejeri ruxsatini shu yerda boshqaring.",
+    "create": "Yangi foydalanuvchi"
+  },
+  "fields": {
+    "username": "Login",
+    "fullName": "F.I.Sh.",
+    "position": "Lavozim",
+    "role": "Rol",
+    "branch": "Filial",
+    "fileManagerAccess": "Fayl menejeri ruxsati",
+    "fileManagerShort": "Fayl menejeri",
+    "status": "Holat",
+    "lastLogin": "Oxirgi kirish"
+  },
+  "filters": {
+    "search": "F.I.Sh. yoki login bo'yicha qidirish"
+  },
+  "status": {
+    "active": "Faol",
+    "blocked": "Bloklangan",
+    "locked": "Vaqtincha qulflangan",
+    "mustChangePassword": "Parolni hali almashtirmagan"
+  },
+  "actions": {
+    "edit": "Tahrirlash",
+    "resetPassword": "Parolni tiklash",
+    "deactivate": "Bloklash",
+    "activate": "Faollashtirish"
+  },
+  "confirm": {
+    "resetPassword": "{{name}} uchun yangi vaqtinchalik parol yaratiladi. Eski parol va barcha ochiq sessiyalar bekor bo'ladi.",
+    "deactivate": "{{name}} tizimga kira olmaydi, barcha ochiq sessiyalari tugatiladi. Keyin qayta faollashtirish mumkin."
+  },
+  "form": {
+    "createTitle": "Yangi foydalanuvchi",
+    "editTitle": "Foydalanuvchini tahrirlash",
+    "usernameRule": "3–50 ta lotin harfi, raqam, '.', '_' yoki '-'",
+    "fileManagerHint": "Fayl yuklash, papka yaratish va fayllarni ko'chirish imkoniyati",
+    "fileManagerNotForRole": "Administrator yuridik hujjatlarni ko'rmaydi, shuning uchun bu ruxsat berilmaydi",
+    "passwordHint": "Saqlangandan keyin vaqtinchalik parol ko'rsatiladi; xodim birinchi kirishda uni almashtiradi.",
+    "created": "{{name}} qo'shildi. Vaqtinchalik parolni xodimga xavfsiz yo'l bilan yetkazing:"
+  },
+  "password": {
+    "copy": "Nusxa olish",
+    "copied": "Nusxalandi",
+    "issuedTitle": "Yangi vaqtinchalik parol",
+    "onceHint": "Parol faqat hozir ko'rsatiladi va tizimda ochiq holda saqlanmaydi. Uni chatga yoki umumiy kanalga yozmang."
+  },
+  "import": {
+    "open": "CSV import",
+    "title": "Ro'yxatni CSV orqali yuklash",
+    "hint": "Birinchi qator — sarlavha. Ajratuvchi «;» yoki «,». Masalan:",
+    "rules": "role: BRANCH, HEAD_OFFICE, LAWYER, HEAD yoki ADMIN. branch — filial nomi, tizimdagidek. Mavjud loginlar o'tkazib yuboriladi.",
+    "choose": "CSV faylni tanlang",
+    "submit": "Yuklash",
+    "created": "qo'shildi",
+    "rejected": "rad etildi",
+    "line": "{{line}}-qator",
+    "savePasswords": "Parollarni yuklab olish",
+    "passwordsHint": "Vaqtinchalik parollar faqat hozir mavjud. Faylni yuklab oling, xodimlarga tarqatgach o'chirib tashlang."
+  }
+}

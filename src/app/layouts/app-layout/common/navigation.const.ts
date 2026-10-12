@@ -8,6 +8,7 @@ export interface NavigationItem {
   icon: IconNameTypes;
   label: string;
   guard: readonly UserRole[];
+  requiresFileManager?: boolean;
 }
 
 export interface NavigationGroup {
@@ -27,6 +28,20 @@ export const NAVIGATION: NavigationGroup[] = [
     ],
   },
   {
+    key: "documents",
+    label: "nav.groups.documents",
+    items: [
+      { path: ROUTES.documents, icon: "book", label: "nav.documents", guard: RoleBasedGuard.documents["display:route"] },
+      {
+        path: ROUTES.fileManager,
+        icon: "upload",
+        label: "nav.fileManager",
+        guard: RoleBasedGuard.fileManager["display:route"],
+        requiresFileManager: true,
+      },
+    ],
+  },
+  {
     key: "modules",
     label: "nav.groups.modules",
     items: [
@@ -40,5 +55,10 @@ export const NAVIGATION: NavigationGroup[] = [
     key: "control",
     label: "nav.groups.control",
     items: [{ path: ROUTES.audit, icon: "history", label: "nav.audit", guard: RoleBasedGuard.audit["display:route"] }],
+  },
+  {
+    key: "admin",
+    label: "nav.groups.admin",
+    items: [{ path: ROUTES.adminUsers, icon: "users", label: "nav.adminUsers", guard: RoleBasedGuard.adminUsers["display:route"] }],
   },
 ];

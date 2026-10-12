@@ -32,14 +32,12 @@ export const DashboardRisk = () => {
       <div className="flex flex-col gap-5">
         <RiskMatrix matrix={data.matrix} />
         <BarList
-          data={[...data.byLevel]
-            .reverse()
-            .map((item) => ({
-              key: item.level,
-              label: t(`risk:level.${item.level}`),
-              value: item.count,
-              colorClass: RiskLevelChartColor[item.level],
-            }))}
+          data={[...data.byLevel].reverse().map((item) => ({
+            key: item.level,
+            label: t(`risk:level.${item.level}`),
+            value: item.count,
+            colorClass: RiskLevelChartColor[item.level],
+          }))}
         />
       </div>
     </SectionCard>

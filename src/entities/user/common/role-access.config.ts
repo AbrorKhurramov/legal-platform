@@ -12,6 +12,9 @@ export const RoleBasedGuard = {
   risks: { "display:route": LEGAL_TEAM, "action:create": LEGAL_TEAM },
   knowledge: { "display:route": ALL_ROLES },
   audit: { "display:route": [UserRole.HEAD] },
+  documents: { "display:route": ALL_ROLES },
+  fileManager: { "display:route": ALL_ROLES },
+  adminUsers: { "display:route": [UserRole.ADMIN] },
 } as const satisfies Record<string, Record<string, readonly UserRole[]>>;
 
 export const hasAccess = (role: UserRole | undefined, allowed: readonly UserRole[]) => !!role && allowed.includes(role);

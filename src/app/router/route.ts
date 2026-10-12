@@ -1,8 +1,12 @@
 import { createBrowserRouter } from "react-router";
 
+import { UserAdminPage } from "@/pages/admin/user-admin/user-admin.entry";
 import { AuditListPage } from "@/pages/audit/audit-list/audit-list.entry";
 import { CourtCaseListPage } from "@/pages/court-case/court-case-list/court-case-list.entry";
 import { DashboardPage } from "@/pages/dashboard/dashboard.entry";
+import { DocumentDetailPage } from "@/pages/document/document-detail/document-detail.entry";
+import { DocumentListPage } from "@/pages/document/document-list/document-list.entry";
+import { FileManagerPage } from "@/pages/document/file-manager/file-manager.entry";
 import { KnowledgeHomePage } from "@/pages/knowledge/knowledge-home/knowledge-home.entry";
 import { LegislationListPage } from "@/pages/legislation/legislation-list/legislation-list.entry";
 import { LoginPage } from "@/pages/login/login.entry";
@@ -63,6 +67,24 @@ export const router = createBrowserRouter([
         handle: handle({ crumb: "breadcrumbs.knowledge", guard: RoleBasedGuard.knowledge["display:route"] }),
       },
       { path: ROUTES.audit, Component: AuditListPage, handle: handle({ crumb: "breadcrumbs.audit", guard: RoleBasedGuard.audit["display:route"] }) },
+      {
+        path: ROUTES.fileManager,
+        Component: FileManagerPage,
+        handle: handle({ crumb: "breadcrumbs.fileManager", guard: RoleBasedGuard.fileManager["display:route"], requiresFileManager: true }),
+      },
+      {
+        path: ROUTES.documents,
+        handle: handle({ crumb: "breadcrumbs.documents", guard: RoleBasedGuard.documents["display:route"] }),
+        children: [
+          { index: true, Component: DocumentListPage },
+          { path: ROUTES.documentDetail, Component: DocumentDetailPage, handle: handle({ crumb: "breadcrumbs.documentDetail" }) },
+        ],
+      },
+      {
+        path: ROUTES.adminUsers,
+        Component: UserAdminPage,
+        handle: handle({ crumb: "breadcrumbs.adminUsers", guard: RoleBasedGuard.adminUsers["display:route"] }),
+      },
       { path: "*", Component: NotFoundPage },
     ],
   },
