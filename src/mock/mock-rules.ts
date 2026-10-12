@@ -41,6 +41,8 @@ export const toUserDTO = (db: MockDatabase, user: UserRecord): UserDTO => ({
   position: user.position,
   role: user.role,
   branch: toBranchRef(db, user.branchId),
+  fileManagerAccess: user.fileManagerAccess,
+  mustChangePassword: user.mustChangePassword,
 });
 
 export const isMatterOverdue = (matter: MatterRecord) =>

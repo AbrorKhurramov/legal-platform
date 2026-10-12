@@ -41,6 +41,7 @@ export const registerAuthHandlers = () => {
           position: user.position,
           role: user.role,
           branchName: toBranchRef(db, user.branchId).name,
+          password: DEMO_PASSWORD,
         })),
       );
     },

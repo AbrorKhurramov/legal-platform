@@ -23,4 +23,6 @@ export interface DemoAccountDTO {
   position: string;
   role: UserDTO["role"];
   branchName: string;
+  /** Demo accounts share one public password; it exists only in the browser's mock data. */
+  password: string;
 }

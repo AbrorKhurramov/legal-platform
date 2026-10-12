@@ -1,4 +1,4 @@
-import { useMutation } from "@tanstack/react-query";
+import { useMutation, useQuery } from "@tanstack/react-query";
 import { AxiosError } from "axios";
 import { Button, Input } from "local-agro-ui";
 import { useForm } from "react-hook-form";
@@ -11,7 +11,10 @@ import { useAppDispatch } from "@/shared/hooks/use-app-dispatch";
 import { Icon } from "@/shared/ui/icon/icon.entry";
 
 import { type LoginRequestBody, authApi, authApiQueryKeys, setAccessToken } from "@/entities/auth/auth.entry";
-import { setUser } from "@/entities/user/user.entry";
+import { RoleTag, setUser } from "@/entities/user/user.entry";
+
+/** The browser-side demo exists only with the mock server; a production build without it shows no demo accounts. */
+const IS_DEMO_AVAILABLE = import.meta.env.VITE_USE_MOCK === "true";
 
 export const LoginForm = () => {
   const { t } = useTranslation(["login", "common"]);
@@ -35,6 +38,13 @@ export const LoginForm = () => {
       dispatch(setUser(response.user));
       navigate(ROUTES.dashboard, { replace: true });
     },
+  });
+
+  const { data: demoAccounts } = useQuery({
+    queryFn: authApi.getDemoAccounts,
+    queryKey: authApiQueryKeys.getKey("getDemoAccounts"),
+    enabled: IS_DEMO_AVAILABLE,
+    staleTime: Infinity,
   });
 
   const errorMessage =
@@ -71,6 +81,35 @@ export const LoginForm = () => {
         {t("login:submit")}
       </Button>
       <p className="text-center text-xs text-greyscale-500">{t("login:hint")}</p>
+
+      {!!demoAccounts?.length && (
+        <div className="flex flex-col gap-3 border-t border-greyscale-200 pt-5">
+          <div>
+            <span className="block text-sm font-semibold text-greyscale-900">{t("login:demoAccounts")}</span>
+            <span className="block text-xs text-greyscale-500">{t("login:demoHint", { password: demoAccounts[0].password })}</span>
+          </div>
+          <ul className="grid grid-cols-1 gap-2 sm:grid-cols-2">
+            {demoAccounts.map((account) => (
+              <li key={account.username}>
+                <button
+                  type="button"
+                  disabled={isPending}
+                  onClick={() => login({ username: account.username, password: account.password })}
+                  className="flex w-full flex-col items-start gap-1 rounded-xl border border-greyscale-300 px-3 py-2 text-left transition hover:border-main-green-400 hover:bg-main-green-50 disabled:opacity-60"
+                >
+                  <span className="flex w-full items-center justify-between gap-2">
+                    <span className="truncate text-sm font-medium text-greyscale-900">{account.fullName}</span>
+                    <RoleTag role={account.role} />
+                  </span>
+                  <span className="truncate text-xs text-greyscale-500">
+                    {account.username} · {account.branchName}
+                  </span>
+                </button>
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
     </form>
   );
 };

@@ -1,6 +1,7 @@
 import type { AuditAction, AuditEntityType } from "@/entities/audit/audit.entry";
 import type { BranchDTO } from "@/entities/branch/branch.entry";
 import type { CourtCaseCategory, CourtCaseResult, CourtCaseStage } from "@/entities/court-case/court-case.entry";
+import type { DocumentDetailDTO } from "@/entities/document/document.entry";
 import type { KnowledgeCategory } from "@/entities/knowledge/knowledge.entry";
 import type { ImpactLevel, LegislationSource, LegislationStatus } from "@/entities/legislation/legislation.entry";
 import type {
@@ -24,6 +25,52 @@ export interface UserRecord {
   position: string;
   role: UserRole;
   branchId: string;
+  fileManagerAccess: boolean;
+  active: boolean;
+  mustChangePassword: boolean;
+  /** Null means the shared demo password; accounts made on the admin page get their own. */
+  password: string | null;
+  lastLoginAt: string | null;
+  createdAt: string;
+}
+
+export interface FolderRecord {
+  id: string;
+  name: string;
+  parentId: string | null;
+}
+
+export interface FileRecord extends Pick<
+  DocumentDetailDTO,
+  | "id"
+  | "originalName"
+  | "format"
+  | "contentType"
+  | "sizeBytes"
+  | "sha256"
+  | "confidential"
+  | "createdAt"
+  | "status"
+  | "source"
+  | "docType"
+  | "language"
+  | "confidence"
+  | "needsReview"
+  | "pageCount"
+  | "processedAt"
+  | "errorMessage"
+  | "pages"
+  | "fields"
+  | "stamps"
+  | "warnings"
+> {
+  folderId: string | null;
+  uploadedById: string;
+  attempts: number;
+  /** A static sample under public/; null means the bytes are in the browser's IndexedDB. */
+  originalUrl: string | null;
+  /** Processing is simulated: the file turns DONE at this moment. */
+  readyAt: string | null;
 }
 
 export interface MatterDocumentRecord {
@@ -178,5 +225,7 @@ export interface MockDatabase {
   risks: RiskRecord[];
   knowledge: KnowledgeRecord[];
   audit: AuditRecord[];
+  folders: FolderRecord[];
+  files: FileRecord[];
   counters: { matter: number; opinion: number; court: number; risk: number };
 }

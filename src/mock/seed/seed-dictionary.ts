@@ -22,22 +22,38 @@ export const SEED_BRANCHES: BranchRecord[] = [
   { id: "br-qqr", name: "Qoraqalpog'iston filiali", type: BranchType.REGIONAL },
 ];
 
-const user = (id: string, username: string, fullName: string, position: string, role: UserRole, branchId: string): UserRecord => ({
+const SEED_CREATED_AT = "2026-01-15T09:00:00.000Z";
+
+const user = (
+  id: string,
+  username: string,
+  fullName: string,
+  position: string,
+  role: UserRole,
+  branchId: string,
+  fileManagerAccess = false,
+): UserRecord => ({
   id,
   username,
   fullName,
   position,
   role,
   branchId,
+  fileManagerAccess,
+  active: true,
+  mustChangePassword: false,
+  password: null,
+  lastLoginAt: null,
+  createdAt: SEED_CREATED_AT,
 });
 
 export const DIRECTOR_ID = "u-head-1";
 export const DEPUTY_ID = "u-head-2";
 
 export const SEED_USERS: UserRecord[] = [
-  user(DIRECTOR_ID, "rustam.x", "Rustam Xolmatov", "Yuridik departament direktori", UserRole.HEAD, HEAD_OFFICE_ID),
+  user(DIRECTOR_ID, "rustam.x", "Rustam Xolmatov", "Yuridik departament direktori", UserRole.HEAD, HEAD_OFFICE_ID, true),
   user(DEPUTY_ID, "feruza.s", "Feruza Saidova", "Shartnomaviy-huquqiy ishlar bo'limi boshlig'i", UserRole.HEAD, HEAD_OFFICE_ID),
-  user("u-law-1", "dilnoza.k", "Dilnoza Karimova", "Bosh yuristkonsult", UserRole.LAWYER, HEAD_OFFICE_ID),
+  user("u-law-1", "dilnoza.k", "Dilnoza Karimova", "Bosh yuristkonsult", UserRole.LAWYER, HEAD_OFFICE_ID, true),
   user("u-law-2", "jasur.t", "Jasur Toshmatov", "Yetakchi yuristkonsult", UserRole.LAWYER, HEAD_OFFICE_ID),
   user("u-law-3", "malika.y", "Malika Yusupova", "Yuristkonsult (sud ishlari)", UserRole.LAWYER, HEAD_OFFICE_ID),
   user("u-law-4", "bekzod.r", "Bekzod Rahimov", "Yuristkonsult (korporativ)", UserRole.LAWYER, HEAD_OFFICE_ID),
@@ -55,9 +71,10 @@ export const SEED_USERS: UserRecord[] = [
   user("u-br-7", "behruz.x", "Behruz Xudoyberdiyev", "Filial boshqaruvchisi", UserRole.BRANCH, "br-xrz"),
   user("u-br-8", "nigora.m", "Nigora Mahmudova", "Filial yuristkonsulti", UserRole.BRANCH, "br-tvl"),
   user("u-br-9", "sanjar.b", "Sanjar Boboyev", "Kredit bo'limi boshlig'i", UserRole.BRANCH, "br-tsh"),
+  user("u-admin-1", "otabek.n", "Otabek Nazarov", "Tizim administratori (AT departamenti)", UserRole.ADMIN, HEAD_OFFICE_ID),
 ];
 
-export const DEMO_USERNAMES = ["rustam.x", "feruza.s", "dilnoza.k", "nodira.a", "aziz.m", "anvar.s"];
+export const DEMO_USERNAMES = ["rustam.x", "feruza.s", "dilnoza.k", "nodira.a", "aziz.m", "anvar.s", "otabek.n"];
 
 export const DEMO_PASSWORD = "demo";
 

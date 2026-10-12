@@ -15,9 +15,11 @@ export interface MockResult {
   status?: number;
   message?: string;
   data?: unknown;
+  /** A file instead of the BaseResponse envelope, like the real download endpoint. */
+  file?: { body: Blob; name: string };
 }
 
-export type MockHandler = (request: MockRequest) => MockResult;
+export type MockHandler = (request: MockRequest) => MockResult | Promise<MockResult>;
 
 type HttpMethod = "get" | "post" | "put" | "patch" | "delete";
 

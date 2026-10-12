@@ -17,10 +17,11 @@ import type { AuditRecord, CourtCaseRecord, LegislationRecord, MatterRecord, Moc
 import { calcRiskLevel } from "../mock-rules";
 import { type Random, addDays, createRandom, daysFromNow, notInFuture } from "./random";
 import { CITIZENS, COUNTERPARTIES, COURTS, DEPUTY_ID, DIRECTOR_ID, IPS, SEED_BRANCHES, SEED_USERS } from "./seed-dictionary";
+import { buildFiles, buildFolders } from "./seed-files";
 import { KNOWLEDGE_SEED } from "./seed-knowledge";
 import { LEGISLATION_SEED, RISK_SEED } from "./seed-registries";
 
-export const MOCK_DB_VERSION = 5;
+export const MOCK_DB_VERSION = 6;
 
 const MATTER_COUNT = 236;
 const COURT_COUNT = 42;
@@ -664,6 +665,8 @@ export const createSeedDatabase = (): MockDatabase => {
       sourceMatterNumber: random.chance(0.4) ? random.pick(matters).number : null,
     })),
     audit: buildAudit(random, users, matters),
+    folders: buildFolders(),
+    files: buildFiles(),
     counters: { matter: MATTER_COUNT, opinion: opinionCounter, court: COURT_COUNT, risk: RISK_SEED.length },
   };
 };
