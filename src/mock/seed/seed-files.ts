@@ -1,4 +1,4 @@
-import { ProcessingStatus } from "@/entities/document/document.entry";
+import { ProcessingStatus, VersionKind } from "@/entities/document/document.entry";
 
 import type { FileRecord, FolderRecord } from "../mock-db.types";
 import { SEED_DOCUMENTS } from "./seed-documents";
@@ -49,9 +49,15 @@ export const buildFiles = (): FileRecord[] =>
   SEED_DOCUMENTS.map(({ key, url, ...document }) => {
     const placement = PLACEMENT[key];
     const createdAt = daysAgoIso(placement.daysAgo);
+    const id = `file-${key}`;
     return {
       ...document,
-      id: `file-${key}`,
+      id,
+      documentId: id,
+      versionNo: 1,
+      versionKind: VersionKind.ORIGINAL,
+      versionComment: null,
+      latest: true,
       confidential: false,
       folderId: placement.folderId,
       uploadedById: placement.uploadedById,

@@ -83,7 +83,7 @@ export const FileManagerTable = () => {
           data={data?.data}
           columns={getFileManagerColumns(t, { onReprocess: reprocess, onMove: setMoving })}
           isLoading={isFetching && !data}
-          onRowClick={(row) => navigate(buildDocumentDetailRoute(row.id))}
+          onRowClick={(row) => navigate(buildDocumentDetailRoute(row.documentId))}
           isPagination
           pagesSyncQuery
           page={list.page}

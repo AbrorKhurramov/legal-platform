@@ -8,6 +8,7 @@ import { stop } from "@/shared/utils/stop-propagation";
 import {
   ContentSourceTag,
   DocTypeLabel,
+  DocumentStatusTag,
   type FileManagerItemDTO,
   FileNameCell,
   FolderName,
@@ -32,6 +33,18 @@ export const getFileManagerColumns = (t: TFunction<"document">, handlers: IFileM
         sizeBytes={row.original.sizeBytes}
         confidential={row.original.confidential}
       />
+    ),
+  }),
+  columnHelper.accessor("documentStatus", {
+    header: t("columns.documentStatus"),
+    enableSorting: false,
+    cell: ({ row }) => (
+      <span className="flex flex-col items-start gap-1">
+        <DocumentStatusTag status={row.original.documentStatus} />
+        {row.original.versionNo > 1 && (
+          <span className="text-xs text-greyscale-500">{t("versions.versionLabel", { number: row.original.versionNo })}</span>
+        )}
+      </span>
     ),
   }),
   columnHelper.accessor("folder", {

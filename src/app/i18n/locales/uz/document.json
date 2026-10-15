@@ -39,7 +39,9 @@
     "docType": "Hujjat turi",
     "uploadedBy": "Yuklagan",
     "pages": "Sahifalar",
-    "folder": "Papka"
+    "folder": "Papka",
+    "documentStatus": "Hujjat holati",
+    "editedBy": "Tahrir: {{name}}, {{date}}"
   },
   "filters": {
     "fileSearch": "Fayl nomi bo'yicha qidirish",
@@ -73,7 +75,8 @@
     "text": "Matn",
     "fields": "Maydonlar",
     "stamps": "Muhrlar",
-    "original": "Asl hujjat"
+    "original": "Asl hujjat",
+    "history": "Tarix"
   },
   "text": {
     "empty": "Hujjatda matn topilmadi",
@@ -113,7 +116,9 @@
     "size": "Hajmi",
     "failed": "Hujjatni qayta ishlab bo'lmadi",
     "processing": "Hujjat qayta ishlanmoqda. Sahifa avtomatik yangilanadi.",
-    "needsReviewHint": "Ba'zi qiymatlar ishonchsiz o'qilgan (masalan, qo'lda yozilgan sana yoki raqam). Ularni asl fayl bilan solishtiring."
+    "needsReviewHint": "Ba'zi qiymatlar ishonchsiz o'qilgan (masalan, qo'lda yozilgan sana yoki raqam). Ularni asl fayl bilan solishtiring.",
+    "createdBy": "Yukladi",
+    "lastEditedBy": "Oxirgi tahrir"
   },
   "folders": {
     "title": "Papkalar",
@@ -144,5 +149,41 @@
     "failed": "Hujjatni ko'rsatib bo'lmadi. Asl faylni yuklab oling.",
     "emptySheet": "Varaq bo'sh",
     "sheetCut": "Varaq katta: faqat birinchi {{rows}} qator va {{columns}} ustun ko'rsatildi. To'liq ko'rish uchun faylni yuklab oling."
+  },
+  "documentStatus": {
+    "UPLOADED": "Yuklandi",
+    "EDITED": "Tahrirlandi",
+    "SIGNED": "Imzolandi"
+  },
+  "versions": {
+    "upload": "Yangi versiya",
+    "attachSigned": "Imzolangan nusxa",
+    "uploadTitle": "Yangi versiya yuklash",
+    "signedTitle": "Imzolangan nusxani biriktirish",
+    "uploadSubmit": "Versiyani yuklash",
+    "signedSubmit": "Biriktirish va imzolandi deb belgilash",
+    "uploadHint": "Hujjatni Word yoki boshqa dasturda o'zgartirib, yangi faylni yuklang. Eski versiya tarixda saqlanib qoladi.",
+    "signedHint": "Rahbariyat imzolagan nusxaning skanini yoki PDF faylini biriktiring.",
+    "signedWarning": "Imzolangan nusxa biriktirilgach hujjat qulflanadi: yangi versiya qo'shib bo'lmaydi.",
+    "choose": "Faylni tanlang",
+    "comment": "Izoh (ixtiyoriy)",
+    "commentPlaceholder": "Masalan: 3.2-band qarz oluvchi e'tirozi bo'yicha o'zgartirildi",
+    "signedCommentPlaceholder": "Masalan: Boshqaruv raisi imzoladi, 14.10.2026",
+    "versionLabel": "{{number}}-versiya",
+    "versionOf": "{{number}}-versiya / jami {{total}}",
+    "viewing": "Hozir ko'rilmoqda",
+    "open": "Ochish",
+    "download": "Yuklab olish",
+    "compareTitle": "Versiyalarni solishtirish",
+    "compareFrom": "Qaysi versiyadan",
+    "compareTo": "Qaysi versiyagacha",
+    "compare": "Solishtirish",
+    "compareTooLarge": "Matnlar juda katta farq qiladi, brauzerda solishtirib bo'lmaydi. Ikkala versiyani yuklab oling.",
+    "changes_one": "{{count}} ta qator o'zgargan",
+    "changes_other": "{{count}} ta qator o'zgargan",
+    "noChanges": "Matnda farq topilmadi",
+    "oldVersion": "Siz {{number}}-versiyani ko'ryapsiz, oxirgisi — {{latest}}-versiya.",
+    "openLatest": "Oxirgi versiyani ochish",
+    "commentOf": "{{number}}-versiya izohi"
   }
 }

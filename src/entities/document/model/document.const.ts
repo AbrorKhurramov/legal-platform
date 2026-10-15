@@ -25,6 +25,21 @@ export const enum DocumentFormat {
   TIFF = "TIFF",
 }
 
+export const enum VersionKind {
+  ORIGINAL = "ORIGINAL",
+  EDIT = "EDIT",
+  SIGNED = "SIGNED",
+}
+
+/** Derived on the backend from the kind of the document's latest version. */
+export const enum DocumentStatus {
+  UPLOADED = "UPLOADED",
+  EDITED = "EDITED",
+  SIGNED = "SIGNED",
+}
+
+export const DOCUMENT_STATUSES: DocumentStatus[] = [DocumentStatus.UPLOADED, DocumentStatus.EDITED, DocumentStatus.SIGNED];
+
 export const DOC_TYPES = ["contract", "court_decision", "power_of_attorney", "letter", "other"] as const;
 export type DocType = (typeof DOC_TYPES)[number];
 
@@ -46,6 +61,9 @@ export const getProcessingStatusOptions = (): SelectOptionType<ProcessingStatus>
 
 export const getDocTypeOptions = (): SelectOptionType<DocType>[] =>
   DOC_TYPES.map((value) => ({ label: i18next.t(`docType.${value}`, { ns: "document" }), value }));
+
+export const getDocumentStatusOptions = (): SelectOptionType<DocumentStatus>[] =>
+  DOCUMENT_STATUSES.map((value) => ({ label: i18next.t(`documentStatus.${value}`, { ns: "document" }), value }));
 
 export const getContentSourceOptions = (): SelectOptionType<ContentSource>[] =>
   CONTENT_SOURCES.map((value) => ({ label: i18next.t(`source.${value}`, { ns: "document" }), value }));

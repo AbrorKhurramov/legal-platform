@@ -7,6 +7,7 @@ import {
   ContentSourceTag,
   DocTypeLabel,
   type DocumentListItemDTO,
+  DocumentStatusTag,
   FileNameCell,
   FolderName,
   NeedsReviewBadge,
@@ -21,6 +22,18 @@ export const getDocumentColumns = (t: TFunction<"document">) => [
       <span className="flex max-w-xl flex-col gap-1">
         <FileNameCell name={row.original.originalName} format={row.original.format} confidential={row.original.confidential} />
         {row.original.snippet && <span className="line-clamp-2 pl-12 text-xs whitespace-normal text-greyscale-500">{row.original.snippet}</span>}
+      </span>
+    ),
+  }),
+  columnHelper.accessor("documentStatus", {
+    header: t("columns.documentStatus"),
+    enableSorting: false,
+    cell: ({ row }) => (
+      <span className="flex flex-col items-start gap-1">
+        <DocumentStatusTag status={row.original.documentStatus} />
+        {row.original.versionNo > 1 && (
+          <span className="text-xs text-greyscale-500">{t("versions.versionLabel", { number: row.original.versionNo })}</span>
+        )}
       </span>
     ),
   }),
@@ -52,7 +65,11 @@ export const getDocumentColumns = (t: TFunction<"document">) => [
     cell: ({ row }) => (
       <span className="flex flex-col">
         <span className="text-greyscale-800">{row.original.uploadedBy.fullName}</span>
-        <span className="text-xs text-greyscale-500">{formatDate(row.original.createdAt)}</span>
+        {row.original.lastEditedBy && (
+          <span className="text-xs text-greyscale-500">
+            {t("columns.editedBy", { name: row.original.lastEditedBy.fullName, date: formatDate(row.original.lastEditedAt) })}
+          </span>
+        )}
       </span>
     ),
   }),

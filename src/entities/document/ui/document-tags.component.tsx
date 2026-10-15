@@ -4,8 +4,8 @@ import { twMerge } from "tailwind-merge";
 
 import { Icon } from "@/shared/ui/icon/icon.entry";
 
-import { ContentSourceColor, ProcessingStatusColor } from "../common/document-status.config";
-import { type ContentSource, ProcessingStatus } from "../model/document.const";
+import { ContentSourceColor, DocumentStatusConfig, ProcessingStatusColor } from "../common/document-status.config";
+import { type ContentSource, type DocumentStatus, ProcessingStatus } from "../model/document.const";
 
 interface IProcessingStatusTagProps {
   status: ProcessingStatus;
@@ -24,6 +24,21 @@ export const ProcessingStatusTag = (props: IProcessingStatusTagProps) => {
       dotted={!isRunning}
     >
       {t(`status.${props.status}`)}
+    </Tag>
+  );
+};
+
+interface IDocumentStatusTagProps {
+  status: DocumentStatus;
+}
+
+export const DocumentStatusTag = (props: IDocumentStatusTagProps) => {
+  const { t } = useTranslation("document");
+  const config = DocumentStatusConfig[props.status];
+
+  return (
+    <Tag colorType={config.color} sizeType="sm" rounded leftIcon={<Icon name={config.icon} className="size-3" />}>
+      {t(`documentStatus.${props.status}`)}
     </Tag>
   );
 };

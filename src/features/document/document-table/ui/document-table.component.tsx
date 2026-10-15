@@ -16,15 +16,18 @@ import { findOption } from "@/shared/lib/select-lib";
 import {
   type ContentSource,
   type DocumentListRequestParams,
+  type DocumentStatus,
   documentApi,
   documentApiQueryKeys,
   getContentSourceOptions,
   getDocTypeOptions,
+  getDocumentStatusOptions,
 } from "@/entities/document/document.entry";
 
 import { getDocumentColumns } from "../common/document-table.columns";
 
 interface IDocumentFilters {
+  status?: DocumentStatus;
   docType?: string;
   source?: ContentSource;
   needsReview: boolean;
@@ -42,6 +45,7 @@ export const DocumentTable = (props: IDocumentTableProps) => {
   const list = useListState<IDocumentFilters>({ needsReview: false });
   const docTypeOptions = getDocTypeOptions();
   const sourceOptions = getContentSourceOptions();
+  const statusOptions = getDocumentStatusOptions();
   const { setPage } = list;
 
   useEffect(() => setPage(DEFAULT_PAGE), [folderId, setPage]);
@@ -49,6 +53,7 @@ export const DocumentTable = (props: IDocumentTableProps) => {
   const requestParams: DocumentListRequestParams = {
     ...list.requestParams,
     ...cleanParams({
+      status: list.filters.status,
       docType: list.filters.docType,
       source: list.filters.source,
       needsReview: list.filters.needsReview || undefined,
@@ -66,6 +71,13 @@ export const DocumentTable = (props: IDocumentTableProps) => {
     <div className="flex flex-col gap-4 rounded-2xl border border-greyscale-300 bg-white pb-5">
       <FilterBar hasActiveFilters={list.hasActiveFilters} onReset={list.resetFilters}>
         <SearchInput value={list.search} placeholder={t("filters.documentSearch")} onChange={list.setSearch} />
+        <Select
+          placeholder={t("columns.documentStatus")}
+          options={statusOptions}
+          value={findOption(statusOptions, list.filters.status)}
+          isClearable
+          onChange={(option) => list.setFilter("status", option?.value)}
+        />
         <Select
           placeholder={t("columns.docType")}
           options={docTypeOptions}
@@ -93,7 +105,7 @@ export const DocumentTable = (props: IDocumentTableProps) => {
           data={data?.data}
           columns={getDocumentColumns(t)}
           isLoading={isFetching && !data}
-          onRowClick={(row) => navigate(buildDocumentDetailRoute(row.id))}
+          onRowClick={(row) => navigate(buildDocumentDetailRoute(row.documentId))}
           isPagination
           pagesSyncQuery
           page={list.page}

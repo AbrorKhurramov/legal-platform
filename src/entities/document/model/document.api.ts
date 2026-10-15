@@ -5,9 +5,11 @@ import { downloadFile } from "@/shared/api/download-file";
 import { QueryKeyBootstrap } from "@/shared/lib/query-lib";
 
 import type {
+  AddVersionRequestBody,
   DocumentDetailDTO,
   DocumentListItemDTO,
   DocumentListRequestParams,
+  DocumentVersionDTO,
   FileListRequestParams,
   FileManagerItemDTO,
   MoveFileRequestBody,
@@ -51,8 +53,23 @@ class DocumentApi {
     return response.data;
   };
 
-  getDocumentDetail = async (fileId: string) => {
-    const response = await this.scopedApi.get<DocumentDetailDTO>(`/documents/${fileId}`);
+  /** Without a version: the document's latest one. */
+  getDocumentDetail = async (fileId: string, version?: number) => {
+    const response = await this.scopedApi.get<DocumentDetailDTO>(`/documents/${fileId}`, { params: { version } });
+    return response.data;
+  };
+
+  getVersions = async (fileId: string) => {
+    const response = await this.scopedApi.get<DocumentVersionDTO[]>(`/documents/${fileId}/versions`);
+    return response.data;
+  };
+
+  createVersion = async ({ fileId, file, comment, signed }: AddVersionRequestBody) => {
+    const form = new FormData();
+    form.append("file", file);
+    const response = await this.scopedApi.post<FileManagerItemDTO>(`/files/${fileId}/${signed ? "signed" : "versions"}`, form, {
+      params: { comment: comment.trim() || undefined },
+    });
     return response.data;
   };
 

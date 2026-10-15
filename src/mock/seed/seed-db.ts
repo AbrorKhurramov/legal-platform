@@ -21,7 +21,7 @@ import { buildFiles, buildFolders } from "./seed-files";
 import { KNOWLEDGE_SEED } from "./seed-knowledge";
 import { LEGISLATION_SEED, RISK_SEED } from "./seed-registries";
 
-export const MOCK_DB_VERSION = 7;
+export const MOCK_DB_VERSION = 8;
 
 const MATTER_COUNT = 236;
 const COURT_COUNT = 42;

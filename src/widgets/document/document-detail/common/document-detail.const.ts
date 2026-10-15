@@ -18,6 +18,7 @@ export const getDocumentDetailTabs = (document: DocumentDetailDTO, withOriginal:
       { name: DocumentDetailTab.Stamps, title: `${i18next.t("tabs.stamps", { ns: "document" })} (${document.stamps.length})` },
     );
   }
+  tabs.push({ name: DocumentDetailTab.History, title: `${i18next.t("tabs.history", { ns: "document" })} (${document.latestVersionNo})` });
   if (withOriginal) tabs.push({ name: DocumentDetailTab.Original, title: i18next.t("tabs.original", { ns: "document" }) });
   return tabs;
 };

@@ -11,6 +11,8 @@ import { formatDateTime } from "@/shared/utils/format-date";
 import { formatFileSize } from "@/shared/utils/format-number";
 
 import { DocumentDownloadButton } from "@/features/document/document-download/document-download.entry";
+import { DocumentVersionHistory } from "@/features/document/document-version-history/document-version-history.entry";
+import { DocumentVersionUpload } from "@/features/document/document-version-upload/document-version-upload.entry";
 import { DocumentViewer } from "@/features/document/document-viewer/document-viewer.entry";
 
 import {
@@ -19,6 +21,8 @@ import {
   DocumentDetailSkeleton,
   DocumentFields,
   DocumentStamps,
+  DocumentStatus,
+  DocumentStatusTag,
   FileNameCell,
   FolderName,
   NeedsReviewBadge,
@@ -28,12 +32,14 @@ import {
   documentApiQueryKeys,
   useFieldLabels,
 } from "@/entities/document/document.entry";
+import { useCurrentUser } from "@/entities/user/user.entry";
 
 import { getDocumentDetailTabs } from "../common/document-detail.const";
 import { DocumentDetailTab } from "../common/document-detail.types";
 import { DocumentPages } from "./document-pages.component";
 
 const TAB_QUERY = "tab";
+const VERSION_QUERY = "version";
 const POLL_INTERVAL_MS = 4000;
 /** Wide enough for the original and the extracted content side by side. */
 const SIDE_BY_SIDE_QUERY = "(min-width: 1280px)";
@@ -46,9 +52,12 @@ export const DocumentDetail = (props: IDocumentDetailProps) => {
   const { fileId } = props;
   const { t } = useTranslation("document");
   const [searchParams, setSearchParams] = useSearchParams();
+  const user = useCurrentUser();
+  // No version in the URL means the latest one, so the link to a document never goes stale.
+  const version = Number(searchParams.get(VERSION_QUERY)) || undefined;
   const { data, isFetching, isError } = useQuery({
-    queryFn: () => documentApi.getDocumentDetail(fileId),
-    queryKey: documentApiQueryKeys.getKey("getDocumentDetail", fileId),
+    queryFn: () => documentApi.getDocumentDetail(fileId, version),
+    queryKey: documentApiQueryKeys.getKey("getDocumentDetail", fileId, version),
     enabled: !!fileId,
     refetchInterval: (query) =>
       query.state.data?.status === ProcessingStatus.PENDING || query.state.data?.status === ProcessingStatus.PROCESSING ? POLL_INTERVAL_MS : false,
@@ -71,6 +80,15 @@ export const DocumentDetail = (props: IDocumentDetailProps) => {
   }
 
   const tabs = data ? getDocumentDetailTabs(data, !isSideBySide) : [];
+  const isOldVersion = !!data && data.versionNo !== data.latestVersionNo;
+  const canAddVersion = !!user?.fileManagerAccess && data?.documentStatus !== DocumentStatus.SIGNED;
+
+  const openVersion = (versionNo: number | null) =>
+    setSearchParams((prevState) => {
+      if (versionNo && versionNo !== data?.latestVersionNo) prevState.set(VERSION_QUERY, String(versionNo));
+      else prevState.delete(VERSION_QUERY);
+      return prevState;
+    });
   const requested = searchParams.get(TAB_QUERY) as DocumentDetailTab | null;
   const activeTab = tabs.find((tab) => tab.name === requested)?.name ?? tabs[0]?.name;
 
@@ -87,13 +105,42 @@ export const DocumentDetail = (props: IDocumentDetailProps) => {
             <div className="flex min-w-0 flex-col gap-3">
               <FileNameCell name={data.originalName} format={data.format} sizeBytes={data.sizeBytes} confidential={data.confidential} />
               <div className="flex flex-wrap items-center gap-2">
+                <DocumentStatusTag status={data.documentStatus} />
+                <span className="rounded-full bg-greyscale-100 px-2 py-0.5 text-xs font-medium text-greyscale-700">
+                  {t("versions.versionOf", { number: data.versionNo, total: data.latestVersionNo })}
+                </span>
                 <ProcessingStatusTag status={data.status} />
                 <ContentSourceTag source={data.source} />
                 {data.needsReview && <NeedsReviewBadge />}
               </div>
             </div>
-            <DocumentDownloadButton fileId={data.id} fileName={data.originalName} />
+            <div className="flex flex-col items-stretch gap-2 sm:flex-row sm:flex-wrap sm:items-start lg:justify-end">
+              {canAddVersion && <DocumentVersionUpload fileId={data.documentId} onUploaded={() => openVersion(null)} />}
+              <DocumentDownloadButton fileId={data.id} fileName={data.originalName} />
+            </div>
           </div>
+
+          {isOldVersion && (
+            <div className="flex flex-wrap items-center justify-between gap-3 rounded-2xl border border-neon-blue-200 bg-neon-blue-50 px-4 py-3 text-sm text-neon-blue-800">
+              <span className="flex items-center gap-2">
+                <Icon name="history" className="size-4" />
+                {t("versions.oldVersion", { number: data.versionNo, latest: data.latestVersionNo })}
+              </span>
+              <button type="button" className="font-medium underline" onClick={() => openVersion(null)}>
+                {t("versions.openLatest")}
+              </button>
+            </div>
+          )}
+
+          {data.versionComment && (
+            <div className="flex gap-2 rounded-2xl border border-greyscale-300 bg-white px-4 py-3 text-sm text-greyscale-700">
+              <Icon name="message" className="mt-0.5 size-4 shrink-0 text-greyscale-500" />
+              <span>
+                <span className="font-medium text-greyscale-900">{t("versions.commentOf", { number: data.versionNo })}: </span>
+                {data.versionComment}
+              </span>
+            </div>
+          )}
 
           <div className="rounded-2xl border border-greyscale-300 bg-white p-5">
             <InfoList
@@ -111,8 +158,16 @@ export const DocumentDetail = (props: IDocumentDetailProps) => {
                   label: t("detail.confidence"),
                   value: data.confidence === null ? "—" : `${Math.round(data.confidence * 100)}%`,
                 },
-                { key: "uploadedBy", label: t("columns.uploadedBy"), value: data.uploadedBy.fullName },
-                { key: "createdAt", label: t("detail.uploadedAt"), value: formatDateTime(data.createdAt) },
+                {
+                  key: "createdBy",
+                  label: t("detail.createdBy"),
+                  value: `${data.documentCreatedBy.fullName} · ${formatDateTime(data.documentCreatedAt)}`,
+                },
+                {
+                  key: "lastEditedBy",
+                  label: t("detail.lastEditedBy"),
+                  value: data.lastEditedBy ? `${data.lastEditedBy.fullName} · ${formatDateTime(data.lastEditedAt)}` : "—",
+                },
                 { key: "processedAt", label: t("detail.processedAt"), value: formatDateTime(data.processedAt) },
                 { key: "size", label: t("detail.size"), value: formatFileSize(data.sizeBytes) },
                 { key: "pages", label: t("columns.pages"), value: data.pageCount ?? "—" },
@@ -191,6 +246,9 @@ export const DocumentDetail = (props: IDocumentDetailProps) => {
                   {activeTab === DocumentDetailTab.Text && <DocumentPages pages={data.pages} />}
                   {activeTab === DocumentDetailTab.Fields && <DocumentFields fields={data.fields} labelFor={labelFor} />}
                   {activeTab === DocumentDetailTab.Stamps && <DocumentStamps stamps={data.stamps} />}
+                  {activeTab === DocumentDetailTab.History && (
+                    <DocumentVersionHistory fileId={data.documentId} viewedVersionNo={data.versionNo} onOpenVersion={openVersion} />
+                  )}
                 </div>
               )}
             </div>

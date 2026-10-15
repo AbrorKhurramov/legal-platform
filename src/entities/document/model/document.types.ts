@@ -1,6 +1,6 @@
 import type { TPageableRequestParams } from "@/shared/api/api-types";
 
-import type { ContentSource, DocumentFormat, ProcessingStatus } from "./document.const";
+import type { ContentSource, DocumentFormat, DocumentStatus, ProcessingStatus, VersionKind } from "./document.const";
 
 export interface UserRefDTO {
   id: string;
@@ -14,6 +14,10 @@ export interface DocumentFolderRefDTO {
 
 export interface FileManagerItemDTO {
   id: string;
+  /** Stable across versions; the detail page and history use it. */
+  documentId: string;
+  versionNo: number;
+  documentStatus: DocumentStatus;
   originalName: string;
   format: DocumentFormat;
   sizeBytes: number;
@@ -31,7 +35,13 @@ export interface FileManagerItemDTO {
 }
 
 export interface DocumentListItemDTO {
+  /** The shown version: the newest one that finished processing. */
   id: string;
+  documentId: string;
+  versionNo: number;
+  documentStatus: DocumentStatus;
+  lastEditedBy: UserRefDTO | null;
+  lastEditedAt: string | null;
   originalName: string;
   format: DocumentFormat;
   source: ContentSource;
@@ -90,7 +100,19 @@ export interface DocumentStampDTO {
 }
 
 export interface DocumentDetailDTO {
+  /** The viewed version. */
   id: string;
+  documentId: string;
+  versionNo: number;
+  versionKind: VersionKind;
+  versionComment: string | null;
+  latestVersionNo: number;
+  /** From the latest version, whichever version is viewed. */
+  documentStatus: DocumentStatus;
+  documentCreatedBy: UserRefDTO;
+  documentCreatedAt: string;
+  lastEditedBy: UserRefDTO | null;
+  lastEditedAt: string | null;
   originalName: string;
   format: DocumentFormat;
   contentType: string;
@@ -141,6 +163,30 @@ export interface DocumentListRequestParams extends TPageableRequestParams {
   needsReview?: boolean;
   /** The folder and everything below it. */
   folderId?: string;
+  status?: DocumentStatus;
+}
+
+export interface DocumentVersionDTO {
+  id: string;
+  versionNo: number;
+  versionKind: VersionKind;
+  comment: string | null;
+  originalName: string;
+  format: DocumentFormat;
+  sizeBytes: number;
+  uploadedBy: UserRefDTO;
+  createdAt: string;
+  status: ProcessingStatus;
+  latest: boolean;
+}
+
+export interface AddVersionRequestBody {
+  /** Any version id of the document. */
+  fileId: string;
+  file: File;
+  comment: string;
+  /** The signed copy locks the document. */
+  signed: boolean;
 }
 
 export interface UploadFilesRequestBody {

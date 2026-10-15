@@ -1,7 +1,7 @@
 import type { AuditAction, AuditEntityType } from "@/entities/audit/audit.entry";
 import type { BranchDTO } from "@/entities/branch/branch.entry";
 import type { CourtCaseCategory, CourtCaseResult, CourtCaseStage } from "@/entities/court-case/court-case.entry";
-import type { DocumentDetailDTO } from "@/entities/document/document.entry";
+import type { DocumentDetailDTO, VersionKind } from "@/entities/document/document.entry";
 import type { KnowledgeCategory } from "@/entities/knowledge/knowledge.entry";
 import type { ImpactLevel, LegislationSource, LegislationStatus } from "@/entities/legislation/legislation.entry";
 import type {
@@ -40,6 +40,7 @@ export interface FolderRecord {
   parentId: string | null;
 }
 
+/** One row per version, like the backend; versions of a document share {@code documentId}. */
 export interface FileRecord extends Pick<
   DocumentDetailDTO,
   | "id"
@@ -64,6 +65,11 @@ export interface FileRecord extends Pick<
   | "stamps"
   | "warnings"
 > {
+  documentId: string;
+  versionNo: number;
+  versionKind: VersionKind;
+  versionComment: string | null;
+  latest: boolean;
   folderId: string | null;
   uploadedById: string;
   attempts: number;
